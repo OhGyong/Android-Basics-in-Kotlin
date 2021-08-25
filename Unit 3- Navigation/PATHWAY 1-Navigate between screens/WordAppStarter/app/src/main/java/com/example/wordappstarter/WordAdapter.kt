@@ -53,7 +53,7 @@ class WordAdapter(private val letterId: String, context: Context) : RecyclerView
         holder.button.text = item
 
         holder.button.setOnClickListener {
-            val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}")
+            val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
             val intent = Intent(Intent.ACTION_VIEW, queryUrl)
             context.startActivity(intent)
         }

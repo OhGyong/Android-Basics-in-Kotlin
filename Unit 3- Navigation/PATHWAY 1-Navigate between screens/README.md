@@ -101,11 +101,19 @@ startActivity()를 intent 등을 사용하여 호출하면서 해당 화면을 �
 앱의 상단에 표시되는 부분을 말한다.</br>
 앱 이름을 표시할 수 있고, 메뉴를 추가하는 등의 맞춤 설정을 할 수 있다.
 - `메뉴 추가하는 방법`</br>
+메뉴를 표현할 아이콘들을 drawable 파일에 다운로드 받는다.</br>
+res 폴더에 Resource Type을 Menu로 하여 리소스 파일을 추가한다.</br>
+java 파일에 메뉴를 추가하는 코드를 작성한다.
 - `GridLayoutManager()`
+- `ContextCompat`</br>
+Resource에서 값을 가져오거나 퍼미션을 확인(사용)할 때 SDK 버전을 고려하지 않아도 설게된 클래스이다.
 - `onCreateOptionMenu()와 onOptionsItemSelected()`</br>
 앱이 메뉴를 사용하기 위해서는 onCreateOptionMenu()와 onOptionsItemSelected() 두 개의 메서드가 필요하다.</br>
     - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
-    - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호춯한다.
+    - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출한다.
+
+https://user-images.githubusercontent.com/52282493/130782002-a7f0b596-631b-4192-bbbc-74a7524850e2.mp4
+
 
 ## 4. Stages of the activity lifecycle
 [Activity 생명 주기 소개](https://developer.android.com/codelabs/basic-android-kotlin-training-activity-lifecycle?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-activity-lifecycle#0)
