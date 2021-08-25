@@ -124,7 +124,8 @@ Activity 생명 주기는 Activity가 생성되는 시점에 시작하여 활동
 개발자는 생명 주기를 파악하고 있어야 한다. Activity가 생명 주기에 올바르게 응답하지 않으면 앱에 버그가 발생하여 사용자의 동작에 혼란을 주거나 앱의 안드로이드 시스템 리소스를 너무 많이 사용하게 될 수 있다.</br>
 
 안드로이드 수명 주기를 파악하고 수명 주기 상태 변경에 올바르게 응답하는 것은 좋은 AOS 개발자가 되기 위한 중요 요소이다.</br>
-![image](https://user-images.githubusercontent.com/52282493/130561531-9b8f8cd7-1936-4bf0-a322-576e48591cff.png)
+![image](https://user-images.githubusercontent.com/52282493/130782783-91831f05-b63e-46aa-b680-c2275e7fbd18.png)
+
 
 'DessertClick'라는 앱을 개발하면서 생명 주기에 대해 알아보자.
 
@@ -136,9 +137,15 @@ Activity를 종료하지 않고 홈으로 이동하는 등으로 화면에 표�
 앱이 백그라운드 상태일 때는 시스템 리소스와 배터리 수명을 보존하기 위해 일반적으로 활동적으로 실행되지 않아야 한다.</br>
 Activity 생명 주기와 그 콜백을 사용하여 백그라운드로 이동하는 시점을 알 수 있기 때문에 진행 죽인 Activity 활동을 중지 시킬 수 있다.</br>
 그 뒤에 앱이 포그라운드로 전활 될 때에도 작업을 다시 실행할 수 있다.
+    - onCreate() - 앱을 만든다.
+    - onStart() - Activity를 시작하고 화면에 표시되게 한다.
+    - onResume() - Activity 포커스를 제공하고 사용자가 상호작용할 수 있도록 Activity를 준비한다.
+    - onPause() - Activity 포커스를 상실한다.
+    - onStop() - 앱을 표시하지 않는다.
+    - onDestroy() - Activity를 완전히 종료하고 메모리 정리를한다.
 
-- `onCreate() 메서드`</br>
-모든 Activity에서 구현해야 하는 메서드이다. view binding 등 Activity의 일회성 초기화를 한다.</br>
+- `onCreate()`</br>
+모든 Activity에서 구현해야 하는. view binding 등 Activity의 일회성 초기화를 한다.</br>
 Activity가 초기화 된 뒤에(Activity 객체가 메모리에 만들어질 때) 한 번 호출된다.</br>
 onCreate() 메서드를 재정의 할 때 super 클래스로 생성해야 한다. 즉, super.onCreate()를 즉시 호출해야 한다.
 onCreate()가 실행되면 Activity가 생성됨으로 간주된다. 
@@ -152,16 +159,36 @@ Log 클래스는 Logcat에 메시지를 쓴다. Logcat은 메시지를 기록하
     모든 메서드에 두 개의 메개변수가 들어간다.</br>
     첫 번째 매개변수는 로그 태그이다. MainActivity 같은 클래스 이름을 삽입하여 로그 메시지를 더 쉽게 찾을 수 있다.</br>
     두 번째 매개변수는 로그 메시지이다. 문자열을 입력하면 된다.
-- `onStart() 메서드`</br>
-onStart() 생명 주기 메서드는 onCreate() 직후에 호출된다. onStart()가 실행되면 Activity가 화면에 표시된다.</br>
+- `onStart()`</br>
+onStart() 생명 주기 메서드는 o() 직후에 호출된다. onStart()가 실행되면 Activity가 화면에 표시된다.</br>
 onCreate()는 Activity를 초기화 하는데 한 번만 호출 되지만, onStart()는 Activity의 생명 주기에서 여러 번 호출될 수 있다.</br>
 onStart()는 상응되는 onStop() 생명 주기 메서드와 페어링된다.</br>
 사용자가 앱을 시작한 후 기기의 홈 화면으로 돌아오면 활동이 중지되고 더 이상 화면에 표시되지 않는다.
-- `onResume() 메서드`</br>
-활동 포커스를 제공하고 사용자가 상호작용할 수 있도록 Activity를 준비한다.
+- `onResume()`</br>
+활동 포커스를 제공하고 사용자가 수 있도록 Activity를 준비한다.
+- `onPause()`</br>
+앱이 백그라운드 상태일 때 호출되며, 이 때 사용자의 포커스가 상실된다.
+- `onStop()`</br>
+onPause() 이후에 호출되며, 더 이상 앱이 표시되지 않는다.
 - `onDestroy()`</br>
 onDestroy()의 실행은 Activity가 완전히 종료되었으며 가비지 컬렉션이 될 수 있음을 의미한다.</br>
 onDestroy()가 호출이 되면 시스템은 가비지 컬렉션같은 리소스들이 삭제될 수 있음을 인식하고 메모리 정리를 시작한다.</br>
 onCreate()가 맨 처음 앱을 초기화 할 때 한 번만 호출이 되었던 것처럼 onDestory()는 리소스가 정리 될 때 한 번만 초기화된다.
+- `onRestart()`</br>
+앱이 백그라운드에 상태에 있다가 포그라운드로 돌아올 때 onCreate()가 실행되지 않고 onRestart()가 호출된다.</br>
+onCreate()와 유사한 부분은 Activity가 표시되기 전에 호출이 된다는 점이다.
 - `가비지 컬렉션`</br>
 더 이상 사용하지 않을 객체의 자동 정리를 나타낸다.
+- `finsih()`</br>
+Activity의 종료를 하게 하는 메서드이다.</br>
+스마트 폰 기기의 뒤로가기 버튼을 누른 것처럼 활용할 수 있다.
+- `대화형 생명주기`</br>
+앱이 완전히 화면에 표시되고 사용자 포커스를 보유하는 생명 주기 부분을 말한다.
+- `기기의 회전 시 데이터 손실`</br>
+기기 상태가 매우 급격하게 변경되어 시스템이 변경사항을 확인하는 가장 쉬운 방법이 Activity를 완전히 종료하고 다시 빌드하는 것이다.</br>
+기기를 가로에서 세로 또는 세로에서 가로로 회전하는 경우 onDestroy() 메서드가 호출되기 때문에 데이터가 손실된다.
+- `onSaveInstanceState()`
+Activity가 소멸되면 필요할 수 있는 데이터를 저장하는 데 사용하는 콜백이다.</br>
+생명 주기 콜백 이미지에서 onSaveInstanceState()는 활동이 중지된 후 (onStop() 메서드가 호출된 후) 호출된다.</br>
+즉, 앱이 백그라운드로 전환될 때마다 호출된다.</br>
+![image](https://user-images.githubusercontent.com/52282493/130796004-0e4cb8b3-3da5-4c3f-9afa-403b2adfb7b0.png)
