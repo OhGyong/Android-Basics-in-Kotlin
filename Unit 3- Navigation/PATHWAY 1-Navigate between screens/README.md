@@ -125,23 +125,23 @@ Activity 생명 주기는 Activity가 생성되는 시점에 시작하여 활동
 안드로이드 수명 주기를 파악하고 수명 주기 상태 변경에 올바르게 응답하는 것은 좋은 AOS 개발자가 되기 위한 중요 요소이다.</br>
 ![image](https://user-images.githubusercontent.com/52282493/130782783-91831f05-b63e-46aa-b680-c2275e7fbd18.png)
 
-
 'DessertClick'라는 앱을 개발하면서 생명 주기에 대해 알아보자.
 
 우선 앱이 실행되면 onCreate(), onStart(), onResume() 순으로 호출이 된다.</br>
 기기에서 뒤로 버튼을 탭하면 onPause(), onStop(), onDestroy()가 순서대로 호출된다.
+
+- onCreate() - 앱을 만든다.
+- onStart() - Activity를 시작하고 화면에 표시되게 한다.
+- onResume() - Activity 포커스를 제공하고 사용자가 상호작용할 수 있도록 Activity를 준비한다.
+- onPause() - Activity 포커스를 상실한다.
+- onStop() - 앱을 표시하지 않는다.
+- onDestroy() - Activity를 완전히 종료하고 메모리 정리를한다.
 
 사용자가 안드로이드 기기와 상호작용을 할 때, 홈으로 이동하거나 전화 통화나 새 앱을 실행하는 경우 해당 앱은 중단 처리를 한다.</br>
 Activity를 종료하지 않고 홈으로 이동하는 등으로 화면에 표시되지 않는다면 이것은 Activity가 백그라운드에 배치된 것이다.</br>
 앱이 백그라운드 상태일 때는 시스템 리소스와 배터리 수명을 보존하기 위해 일반적으로 활동적으로 실행되지 않아야 한다.</br>
 Activity 생명 주기와 그 콜백을 사용하여 백그라운드로 이동하는 시점을 알 수 있기 때문에 진행 죽인 Activity 활동을 중지 시킬 수 있다.</br>
 그 뒤에 앱이 포그라운드로 전활 될 때에도 작업을 다시 실행할 수 있다.
-    - onCreate() - 앱을 만든다.
-    - onStart() - Activity를 시작하고 화면에 표시되게 한다.
-    - onResume() - Activity 포커스를 제공하고 사용자가 상호작용할 수 있도록 Activity를 준비한다.
-    - onPause() - Activity 포커스를 상실한다.
-    - onStop() - 앱을 표시하지 않는다.
-    - onDestroy() - Activity를 완전히 종료하고 메모리 정리를한다.
 
 - `onCreate()`</br>
 모든 Activity에서 구현해야 하는. view binding 등 Activity의 일회성 초기화를 한다.</br>
@@ -188,6 +188,11 @@ Activity의 종료를 하게 하는 메서드이다.</br>
 기기를 가로에서 세로 또는 세로에서 가로로 회전하는 경우 onDestroy() 메서드가 호출되기 때문에 데이터가 손실된다.
 - `onSaveInstanceState()`
 Activity가 소멸되면 필요할 수 있는 데이터를 저장하는 데 사용하는 콜백이다.</br>
-생명 주기 콜백 이미지에서 onSaveInstanceState()는 활동이 중지된 후 (onStop() 메서드가 호출된 후) 호출된다.</br>
+생명 주기 콜백 이미지에서 onSaveInstanceState()는 Activity가 중지된 후 (onStop() 메서드가 호출된 후) 호출된다.</br>
 즉, 앱이 백그라운드로 전환될 때마다 호출된다.</br>
+번들 유형의 outState 매개변수를 사용하여 putInt() 등의 함수를 통해 데이터를 번들에 넣어 메모리에 유지시킬 수 있다.
+
 ![image](https://user-images.githubusercontent.com/52282493/130796004-0e4cb8b3-3da5-4c3f-9afa-403b2adfb7b0.png)
+
+
+https://user-images.githubusercontent.com/52282493/131166711-406eacfb-ffda-4da6-bc9c-73ec28acdbeb.mp4

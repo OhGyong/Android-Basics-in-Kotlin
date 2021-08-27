@@ -29,6 +29,8 @@ import androidx.databinding.DataBindingUtil
 import com.example.android.dessertclicker.databinding.ActivityMainBinding
 
 const val TAG = "MainActivity"
+
+// 인스턴스 상태 번들에서 데이터를 저장하고 검색하는데 사용 할 변수
 const val KEY_REVENUE = "revenue_key"
 const val KEY_DESSERT_SOLD = "dessert_sold_key"
 
@@ -38,19 +40,12 @@ class MainActivity : AppCompatActivity() {
     private var revenue = 0
     private var dessertsSold = 0
 
-    // Contains all the views
     private lateinit var binding: ActivityMainBinding
 
-    /** Dessert Data **/
-
-    /**
-     * Simple data class that represents a dessert. Includes the resource id integer associated with
-     * the image, the price it's sold for, and the startProductionAmount, which determines when
-     * the dessert starts to be produced.
-     */
+    // data 클래스 생성
     data class Dessert(val imageId: Int, val price: Int, val startProductionAmount: Int)
 
-    // Create a list of all desserts, in order of when they start being produced
+    // 디저트를 담을 리스트 생성
     private val allDesserts = listOf(
             Dessert(R.drawable.cupcake, 5, 0),
             Dessert(R.drawable.donut, 10, 5),
@@ -66,55 +61,54 @@ class MainActivity : AppCompatActivity() {
             Dessert(R.drawable.nougat, 5000, 16000),
             Dessert(R.drawable.oreo, 6000, 20000)
     )
-    private var currentDessert = allDesserts[0]
+
+    private var currentDessert = allDesserts[0] // 현재 디저트를 리스트의 첫번째로 지정
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d("MainActivity", "onCreate Called")
-        // Use Data Binding to get reference to the views
+        // 데이터 바인딩 사용
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        // 인스턴스 상태의 번들 데이터가 있는지 확인
         if(savedInstanceState != null){
             revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
             dessertsSold = savedInstanceState.getInt(KEY_DESSERT_SOLD, 0)
             showCurrentDessert()
         }
 
+        // 번들 데이터에 맞춰서 텍스트와 이미지 변환
+        binding.revenue = revenue
+        binding.amountSold = dessertsSold
+        binding.dessertButton.setImageResource(currentDessert.imageId)
+
         binding.dessertButton.setOnClickListener {
             onDessertClicked()
         }
-
-        // Set the TextViews to the right values
-        binding.revenue = revenue
-        binding.amountSold = dessertsSold
-
-        // Make sure the correct dessert is showing
-        binding.dessertButton.setImageResource(currentDessert.imageId)
     }
 
     /**
-     * Updates the score when the dessert is clicked. Possibly shows a new dessert.
+     * 디저트 이미지 클릭 이벤트를 처리하는 메서드
      */
     private fun onDessertClicked() {
 
-        // Update the score
-        revenue += currentDessert.price
-        dessertsSold++
+        revenue += currentDessert.price // 디저트 이미지 클릭 시 수익 상승
+        dessertsSold++ // 판매한 개수
 
+        // activity_main.xml 파일의 data variable의 값을 지정
         binding.revenue = revenue
         binding.amountSold = dessertsSold
 
-        // Show the next dessert
         showCurrentDessert()
     }
 
     /**
-     * Determine which dessert to show.
+     * 디저트의 개수와 수익 이미지 등을 관리하는 메서드
      */
     private fun showCurrentDessert() {
         var newDessert = allDesserts[0]
 
+        // 판매한 개수에 맞는 디저트를 가져오는 부분
         for (dessert in allDesserts) {
             if (dessertsSold >= dessert.startProductionAmount) {
                 newDessert = dessert
@@ -122,7 +116,7 @@ class MainActivity : AppCompatActivity() {
             else break
         }
 
-        // If the new dessert is actually different than the current dessert, update the image
+        // 위에 업데이트된 디저트로 이미지 변환
         if (newDessert != currentDessert) {
             currentDessert = newDessert
             binding.dessertButton.setImageResource(newDessert.imageId)
@@ -145,6 +139,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * 메뉴처리 메서드
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
@@ -157,6 +154,9 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * Activity  생명주기 중지될 때 데이터를 저장하도록 처리한 메서드
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(KEY_REVENUE, revenue)
