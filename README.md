@@ -2,7 +2,7 @@
 [안드로이드 코틀린 강의 공식 사이트](https://developer.android.com/courses/android-basics-kotlin/course)에서 하나씩 해보자.
 
 ## Unit 1: Kotlin basics
-[Unit 1 정리 페이지](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%201-%20Kotlin%20basics)
+[Unit 1 정리 페이지](https://github.com/OhGyong/Android-Kotlin-Basics-in-Kotlin/tree/master/Unit%201-%20Kotlin%20basics)
 - PATHWAY 1- Introduction to Kotlin
     - 코틀린에 대한 간단한 설명
     - 변수와 함수의 선언과 명명 규칙
@@ -21,10 +21,8 @@
     - 코틀린에서 if, when 문의 사용법
     - 주사위 굴리기 앱 개발
 
-![image](https://user-images.githubusercontent.com/52282493/129652762-3a228b21-b4f0-46e6-b638-6b42faa5d646.png)
-</br>
-
-https://user-images.githubusercontent.com/52282493/128595316-13270794-24f9-4718-ac74-765100a8ce66.mp4
+![image](https://user-images.githubusercontent.com/52282493/131112294-d580f86d-74e4-4dcd-b1ce-19ae1a755dc7.png)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131113966-0fc3491d-e814-445f-b521-67324ecee10a.gif)
 
 ## Unit 2: Layouts
 [Unit 2 정리 페이지](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts)
@@ -44,6 +42,5 @@ https://user-images.githubusercontent.com/52282493/128595316-13270794-24f9-4718-
     - RecyclerView
     - 일일 명언 앱 개발
 
-    https://user-images.githubusercontent.com/52282493/129019448-378b5693-78ce-49d0-82bd-6e1aed85f60e.mp4
-
-    https://user-images.githubusercontent.com/52282493/129556781-bf5a63ff-825d-46ba-9cac-a25856a8d0e6.mp4
+    ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131114885-afbb6739-26a2-4700-a26c-51aea34f0d1c.gif)
+    ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131115224-525d44dc-7303-4bf6-87b2-89e0a50cc280.gif)
