@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>app</name>
-	<comment>Project Dice Roller Android-app created by Buildship.</comment>
+	<name>WordAppStarter-app</name>
+	<comment>Project WordAppStarter-app created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>0</id>
+			<id>1630059218746</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
