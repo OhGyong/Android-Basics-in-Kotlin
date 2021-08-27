@@ -25,7 +25,7 @@
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131113966-0fc3491d-e814-445f-b521-67324ecee10a.gif)
 
 ## Unit 2: Layouts
-[Unit 2 정리 페이지](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts)
+[Unit 2 정리 페이지](https://github.com/OhGyong/Android-Kotlin-Basics-in-Kotlin/tree/master/Unit%202-%20Layouts)
 - PATHWAY 1- Get User input in an app: Part1
     - 클래스 계층구조 (주택의 거주인, 면적 등을 계산하는 것을 예시로한 코드)
     - 안드로이드 스튜디오 xml 파일 다루기
