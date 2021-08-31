@@ -98,7 +98,7 @@ data 패키지 생성 후에 Datasource라는 클래스를 생성
 - `RecyclerView를 만들고 사용하기 위한 내용`</br>
 ![image](https://user-images.githubusercontent.com/52282493/129467901-fbf0a98b-3f45-452e-add5-979be331326b.png)</br>
 RecyclerView를 사용하기 위해서 많은 부분이 관련된다.
-    - **항목**</br>
+    - **item**</br>
     표시할 목록의 단일 데이터 항목. 보여줄 단일 객체 하나를 나타낸다.
     - **Adapter**</br>
         Adapter는 RecyclerView에서 표시할 수 있도록 데이터를 가져와 준비한다. 즉, 데이터를 RecyclerView 에서 사용할 수 있는 형식으로 조정하는 설계 패턴이다.</br>
