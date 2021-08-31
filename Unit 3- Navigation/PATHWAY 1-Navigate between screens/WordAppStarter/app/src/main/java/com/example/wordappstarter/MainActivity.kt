@@ -47,7 +47,9 @@ class MainActivity : AppCompatActivity() {
             else ContextCompat.getDrawable(this,R.drawable.ic_linear_layout)
     }
 
-    // 옵션 메뉴를 확장하여 추가 설정을 실행
+    /**
+     * 옵션 메뉴를 확장하여 추가 설정을 실행
+     */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.layout_menu, menu)
 
@@ -57,7 +59,9 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    // 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출
+    /**
+     * 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_switch_layout -> {

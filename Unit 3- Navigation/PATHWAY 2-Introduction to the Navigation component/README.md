@@ -42,7 +42,7 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
     - DESTROYED: Fragment 객체의 인스턴스화가 취소되었다.
 
     Fragment의 생명주기 이벤트에 응답하기 위한 재정의할 수 있는 메서드</br>
-    - onCreate(): Fragment가 인스턴스화 되었 CREATED 상태이다. 하지만 이에 상응하는 뷰가 아직 만들어지지 않았다.
+    - onCreate(): Fragment가 인스턴스화 되었고, CREATED 상태이다. 하지만 이에 상응하는 뷰가 아직 만들어지지 않았다.
     - onCreateView(): 이 메서드에서 레이아웃을 확장한다. Fragment가 CREATED 상태로 전환된다.
     - onViewCreated(): 뷰가 만들어진 후 호출된다. 이 메서드에서 일반적으로 findViewById()를 호출하여 특정 뷰를 속성에 바인딩한다.
     - onStart(): Fragment가 STARTED 상태로 전환된다.
@@ -62,8 +62,40 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
         Fragment는 각 뷰에 맞는 바인딩 객체를 추가하기만 하면 된다. 하지만 onCreateView() 가 호출될 때까지 레이아웃을 확장할 수 없기 때문에 초깃값이 null 이어야 한다.</br>
         때문에 ?연산자를 추가하여 null을 허용해야 한다. 참고로 바인딩 객체가 만들어지는 시점(생명주기가 onCreate()로 시작될 때)이 속성을 실제로 사용할 수 있는 시점 사이에 기간이 있다.</br>
         Fragment의 뷰는 생명 주기 동안 여러 번 만들어지고 소멸될 수 있다는 사실에 유의해야 하며 다른 생명 주기 메서드 onDestroyView()에서도 값을 재설정해야 한다.
-        
+
     - `!!`</br>
         null이 아님을 확신하는 경우 유형에 추가한다.
+    - `get()`</br>
+        변수 앞에 get()을 사용하여 이 속성이 'get-only'라는 것을 나타낸다.</br>
+        값을 가져올 수 있지만 값이 할당되고 나면 다른 것에 할당할 수 없음을 의미한다.
+        ```kotlin
+            //예시
+            private val binding get() = _binding!!
+        ```
+    - `setHasOptionMenu(true)`</br>
+        Fragment에서 메뉴가 있음을 알리는 코드. Activity보다 Fragment의 메뉴가 우선이 된다.
+
+    - `Fragment에서의 onCreateOptionMenu()`</br>
+        Activity에서는 menuInflater라는 전역 속성을 사용하여 메뉴를 확장한다. 하지만 Fragment에서는 이 속성이 없다.</br>
+        대신 Fragment에서는 menuInflater가 매개변수로 입력이되어 사용할 수 있으며 return 값을 필요로 하지 않는다.</br>
+        ```kotlin
+            // Activity 예시
+            override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+                menuInflater.inflate(R.menu.layout_menu, menu)
+
+                val layoutButton = menu?.findItem(R.id.action_switch_layout)
+                setIcon(layoutButton)
+
+                return true
+            }
+
+            // Fragment 예시
+            override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+                inflater.inflate(R.menu.layout_menu, menu)
+
+                val layoutButton = menu.findItem(R.id.action_switch_layout)
+                setIcon(layoutButton)
+            }
+        ```
 
 ## 3. Navigation: Overview - MAD Skills
