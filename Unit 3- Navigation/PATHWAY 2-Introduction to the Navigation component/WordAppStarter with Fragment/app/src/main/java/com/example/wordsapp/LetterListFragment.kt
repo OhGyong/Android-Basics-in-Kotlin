@@ -2,7 +2,10 @@ package com.example.wordsapp
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wordsapp.databinding.FragmentLetterListBinding
 
@@ -12,6 +15,8 @@ class LetterListFragment : Fragment() {
     private val binding get() = _binding!! // null이 아닌 바인딩 속성을 다시 지정 -> view로 사용
 
     private lateinit var recyclerView: RecyclerView // RecyclerView 객체 생성
+
+    private var isLinearLayoutManager = true // 옵션 메뉴에서 grid로 할지 linear로 할지 정할 변수
 
 
     /**
@@ -63,5 +68,41 @@ class LetterListFragment : Fragment() {
         setIcon(layoutButton)
     }
 
+    private fun chooseLayout() {
+        when (isLinearLayoutManager){
+            true -> {
+                recyclerView.layoutManager = LinearLayoutManager(context)
+                recyclerView.adapter = LetterAdapter()
+            }
+            false ->{
+                recyclerView.layoutManager = GridLayoutManager(context,4)
+                recyclerView.adapter = LetterAdapter()
+            }
+        }
+
+    }
+
+    private fun setIcon(menuItem: MenuItem?) {
+        if (menuItem == null)
+            return
+
+        menuItem.icon =
+            if (isLinearLayoutManager)
+                ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_grid_layout)
+            else ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_linear_layout)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_switch_layout -> {
+                isLinearLayoutManager = !isLinearLayoutManager
+                chooseLayout()
+                setIcon(item)
+
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
 }

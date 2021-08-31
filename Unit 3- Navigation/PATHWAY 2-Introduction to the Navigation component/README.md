@@ -98,4 +98,46 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
             }
         ```
 
+    - `Context`</br>
+        애플리케이션 환경에 대한 전역 정보의 인터페이스이다.</br>
+        Context는 구현을 위한 안드로이드 시스템에서 제공하는 추상 클래스이다. 애플리케이션 별로 리소스 및 클래스에 대한 액세스는 물론 Activity의 실행, 브로드 캐스트 및 Intent 수신과 같은 애플리케이션 레벨에 대한 호출을 허용한다. 예를 들면 startActivity(), getPackageName()과 같은 시스템 레벨의 정보를 얻을 수 있는 메서드를 쓸 수 있다.</br>
+        Activity 객체는 Context의 객체를 상속받는다. 따라서 Activity가 애플리케이션의 특정자원, 애플리케이션의 환경 정보, 클래스에 대해 접근할 수 있게된다.
+
+    - `Fragment의 Context`</br>
+        Activity는 Context를 상속받지만 이와 달리 Fragment는 Context가 아니다. 따라서 this를 레이아웃 관리자의 Context로 전달할 수 없다.</br>
+        하지만 Fragment는 context 속성을 사용할 수 있다.
+
+    - `Fragment의 Intent`</br>
+        Fragment에서는 intent 속성이 없으므로 일반적으로 상위 Activity의 인텐트에 액세스가 안된다.</br>
+        이 경우 단순 intent가 아닌 activity.intent를 참조하여 사용할 수 있다.
+    
+    - `Jetpack Navigation 구성요소`
+        안드로이드 Jetpack에서 제공하는 Navigation 구성요소를 통해 앱에서 간단하거나 복잡한 Navigation 구현을 처리할 수 있다.</br>
+        Navigation 구성요소에서 Navigation을 구현하는데 사용할 세 가지 주요 부분이 있다.
+        - **Navigation Graph**</br>
+            Navigation Graph는 앱에서 Navigation을 시각적으로 보여주는 XML 파일이다.</br>
+            파일은 개별 Activity 및 Fragment에 상응하는 대상과 하나의 대상에서 다른 대상으로 이동하려고 코드에서 사용할 수 있는 대상 사이의 작업으로 구성된다.</br>
+            레이아웃 파일과 마찬가지로 안드로이드 스튜디오는 Navigation Graph에 대상과 적업을 추가하는 시작적 편집기를 제공한다.</br>
+            ![navigation graph](https://user-images.githubusercontent.com/52282493/131501904-8135650e-bf64-43c7-b349-7f884937b114.PNG)
+        - **NavHost**</br>
+            NavHost는 Activity 내에서 Navigation Graph의 대상을 표시하는데 사용된다.</br>
+            Fragment 간에 이동하면 NavHost에 표시되는 대상이 업데이트된다. MainAcvitiy에서 NavHostFragment라는 기본적으로 제공되는 것을 사용한다.
+        - **NavController**</br>
+            NavController 객체를 사용하면 NavHost에 표시되는 대상 간의 Navigation을 제어할 수 있다.</br>
+            Intent를 사용할 때 startActivity를 호출하여 새로운 Activity 화면으로 이동해야 했지만, NavController의 navigate() 메서드를 호출하여 표시되는 Fragment를 교체할 수 있다.
+    
+    - `Navigation 구성요소 추가하기`</br>
+        build.gradle(Project)에는 buildscript > ext에서 nav_version을 2.3.1로 sync 해주고</br>
+        build.gradle(App)에는 implementation "androidx.navigation:navigation-fragment-ktx:$nav_version", implementation "androidx.navigation:navigation-ui-ktx:$nav_version"을 sync 해준다.
+    
+    - `Safe Args 플러그인`</br>
+        Fragment 간에 데이터를 전달할 때 유형 안전성을 지원하는 Gradle 플러그인인 Safe Args 항목을 추가해야 한다.</br>
+        build.gradle(Project)에는 buildscript > dependencies에서 classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"을 sync 해주고</br>
+        build.gradle(App)에는 plugins에 id 'androidx.navigation.safeargs.kotlin'dmf sync 해준다.
+
+    - `app:defaultNavHost="ture"`</br>
+        Fragment 컨테이너가 Navigation 계층 구조와 상호작용할 수 있다.</br>
+        예를 들면 시스템 뒤로 버튼을 누르면 컨테이너는 새로운 Activity가 표시될 때와 마찬가지로 이전에 표시된 Fragment로 다시 이동한다.
+
+
 ## 3. Navigation: Overview - MAD Skills

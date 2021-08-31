@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -32,7 +33,6 @@ import androidx.recyclerview.widget.RecyclerView
 class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
-    // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
     private val list = ('A').rangeTo('Z').toList()
 
     /**
@@ -53,8 +53,7 @@ class LetterAdapter :
         val layout = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_view, parent, false)
-        
-        // Setup custom accessibility delegate to set the text read
+
         layout.accessibilityDelegate = Accessibility
         return LetterViewHolder(layout)
     }
@@ -63,25 +62,12 @@ class LetterAdapter :
      * Replaces the content of an existing view with new data
      */
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
-        val item = list.get(position)
-        holder.button.text = item.toString()
 
-        // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
-        holder.button.setOnClickListener {
-            val context = holder.view.context
-            // Create an intent with a destination of DetailActivity
-            val intent = Intent(context, DetailActivity::class.java)
-            // Add the selected letter to the intent as extra data
-            // The text of Buttons are [CharSequence], a list of characters,
-            // so it must be explicitly converted into a [String].
-            intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
-            // Start an activity using the data and destination from the Intent.
-            context.startActivity(intent)
-        }
+        val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
+        holder.view.findNavController().navigate(action)
+
     }
 
-    // Setup custom accessibility delegate to set the text read with
-    // an accessibility service
     companion object Accessibility : View.AccessibilityDelegate() {
         @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun onInitializeAccessibilityNodeInfo(
@@ -89,10 +75,6 @@ class LetterAdapter :
             info: AccessibilityNodeInfo?
         ) {
             super.onInitializeAccessibilityNodeInfo(host, info)
-            // With `null` as the second argument to [AccessibilityAction], the
-            // accessibility service announces "double tap to activate".
-            // If a custom string is provided,
-            // it announces "double tap to <custom string>".
             val customString = host?.context?.getString(R.string.look_up_words)
             val customClick =
                 AccessibilityNodeInfo.AccessibilityAction(
