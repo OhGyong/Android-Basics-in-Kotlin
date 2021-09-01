@@ -55,6 +55,7 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
     ![image](https://user-images.githubusercontent.com/52282493/131074312-6b5d4806-5413-4236-8978-656ca2b200de.png)
 
 - ***WordAppStarter with Fragment*** 프로젝트
+
     - `Fragment에서의 바인딩`</br>
         Activity와 마찬가지로 레이아웃을 확장하고 개별 뷰를 바인딩해야 한다. Activity에서는 ActivityMainBinding()을 통해서 바인딩 객체를 추가할 수 있었다.</br>
         **Fragment에서는 어떻게 할 수 있을까?**</br>
@@ -139,5 +140,13 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
         Fragment 컨테이너가 Navigation 계층 구조와 상호작용할 수 있다.</br>
         예를 들면 시스템 뒤로 버튼을 누르면 컨테이너는 새로운 Activity가 표시될 때와 마찬가지로 이전에 표시된 Fragment로 다시 이동한다.
 
+    - `SupportFragmentManager.findFragmentById()`<br>
+        Activity랑 상호작용하는 Fragment를 관리하는 클래스로, findFragmentById() 메서드를 통해 Fragment를 찾을 수 있다.
+    
+    - `setupActionBarWithNavController()`</br>
+        App Bar에 현재 보여지고 있는 화면의 라벨로 보여준다.
 
+    - `onSupportNavigateUp()`</br>
+        위의 setupActionBarWithNavController()을 사용하여 생긴 뒤로가기 버튼의 이벤트 처리를 하기위해서 onSupportNavigateUp()을 오버라이드 해줘야한다.
+        
 ## 3. Navigation: Overview - MAD Skills

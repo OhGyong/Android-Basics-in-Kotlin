@@ -16,37 +16,34 @@
 package com.example.wordsapp
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.wordsapp.databinding.ActivityMainBinding
 
 /**
- * Main Activity and entry point for the app. Displays a RecyclerView of letters.
+ * 단일 Activity로써 단순히 navController를 통해 시작 Fragment를 연결한다.
  */
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController // NavController 객체 생성
+    private lateinit var navController: NavController // NavController 객체 생성, 값이 onCreate에서 생성되므로 lateinit을 걸어준다.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        // 변경될 화면의 정보를 얻음
         val navHostFragment = supportFragmentManager
                 .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        setupActionBarWithNavController(navController)
+        setupActionBarWithNavController(navController) /// 현재 보여지고 있는 화면의 Label을 AppBar에 보여주고, 뒤로가기 버튼을 추가
     }
 
+    // 뒤로가기 설정
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }

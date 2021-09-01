@@ -15,7 +15,6 @@
  */
 package com.example.wordsapp
 
-import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 /**
- * Adapter for the [RecyclerView] in [MainActivity].
+ * LetterListFragment의 RecyclerView에 쓰일 Adapter
  */
 class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
@@ -62,10 +61,12 @@ class LetterAdapter :
      * Replaces the content of an existing view with new data
      */
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
-
-        val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter = holder.button.text.toString())
-        holder.view.findNavController().navigate(action)
-
+        val item = list.get(position)
+        holder.button.text = item.toString()
+        holder.button.setOnClickListener {
+            val action = LetterListFragmentDirections.actionLetterListFragmentToWordListFragment(letter=holder.button.text.toString())
+            holder.view.findNavController().navigate(action)
+        }
     }
 
     companion object Accessibility : View.AccessibilityDelegate() {

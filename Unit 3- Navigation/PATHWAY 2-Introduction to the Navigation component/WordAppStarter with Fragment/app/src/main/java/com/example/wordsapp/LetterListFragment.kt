@@ -34,11 +34,10 @@ class LetterListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // 레이아웃을 확장하여 뷰를 반환한다.
-        _binding = FragmentLetterListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        _binding = FragmentLetterListBinding.inflate(inflater, container, false) // FragmentLetterListBinding은 자동으로 생성된 바인딩 클래스
+        return binding.root
     }
 
     /**
