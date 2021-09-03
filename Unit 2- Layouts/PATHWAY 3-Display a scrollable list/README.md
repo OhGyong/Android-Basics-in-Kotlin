@@ -9,25 +9,25 @@
 [코틀린에서 List 사용하기](https://developer.android.com/codelabs/basic-android-kotlin-training-lists?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-lists#0)
 
 - `List 데이터 유형`</br>
-List는 특정 순서가 있는 항목의 모음이다.</br>
-일반적인 'List'는 생성 후 수정할 수 없지만 'MutableList'는 생성 후 수정할 수 있다(요소를 추가하거나 삭제, 업데이트 가능).</br>
-List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 지정해야 한다.</br>
-요소 유형을 표시할때 꺾쇠괄호롤 묶어 추가하면 된다.</br>
-예를들면 정수 목록으로 List<'Int'>, 문자열 목록으로 List<'String'>, 객체 인스턴스 목록으로 List<'클래스 명'>으로 표현할 수 있다.</br>
-    ```kotlin
-    /*
-    * 1. listOf<>() 또는 mutableListOf<>()로 생성하기
-    * 2. List<> 또는 mutableList<>로 변수의 데이터 유형을 미리 지정하여 생성하기
-    */
+    List는 특정 순서가 있는 항목의 모음이다.</br>
+    일반적인 'List'는 생성 후 수정할 수 없지만 'MutableList'는 생성 후 수정할 수 있다(요소를 추가하거나 삭제, 업데이트 가능).</br>
+    List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 지정해야 한다.</br>
+    요소 유형을 표시할때 꺾쇠괄호롤 묶어 추가하면 된다.</br>
+    예를들면 정수 목록으로 List<'Int'>, 문자열 목록으로 List<'String'>, 객체 인스턴스 목록으로 List<'클래스 명'>으로 표현할 수 있다.</br>
+        ```kotlin
+        /*
+        * 1. listOf<>() 또는 mutableListOf<>()로 생성하기
+        * 2. List<> 또는 mutableList<>로 변수의 데이터 유형을 미리 지정하여 생성하기
+        */
 
-    // List로 생성
-    val entress = listOf<Int>()
-    val entress: List<Int> = listOf()
+        // List로 생성
+        val entress = listOf<Int>()
+        val entress: List<Int> = listOf()
 
-    // mutableList로 생성
-    val entress = mutableListOf<Int>()
-    val entress: MutableList<Int> = mutableListOf()
-    ```
+        // mutableList로 생성
+        val entress = mutableListOf<Int>()
+        val entress: MutableList<Int> = mutableListOf()
+        ```
 - `listOf()`</br>
 List 값을 만듬 → listOf(1, 2, 3, 4, 5) = [1, 2, 3, 4, 5]
 - `mutableListOf()`</br>
