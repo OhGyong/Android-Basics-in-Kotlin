@@ -35,7 +35,7 @@ class LetterAdapter :
     private val list = ('A').rangeTo('Z').toList()
 
     /**
-     * Provides a reference for the views needed to display items in your list.
+     * LetterViewHolder를 생성하여 RecyclerView의 단일 항목 View를  재사용하게 한다.
      */
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button = view.findViewById<Button>(R.id.button_item)
@@ -46,7 +46,7 @@ class LetterAdapter :
     }
 
     /**
-     * Creates new views with R.layout.item_view as its template
+     * LetterViewHollder를 상속하여 View를 연결한다.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
         val layout = LayoutInflater
@@ -58,7 +58,7 @@ class LetterAdapter :
     }
 
     /**
-     * Replaces the content of an existing view with new data
+     * View의 데이터를 업데이트
      */
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
         val item = list.get(position)

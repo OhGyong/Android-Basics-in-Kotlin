@@ -67,6 +67,9 @@ class LetterListFragment : Fragment() {
         setIcon(layoutButton)
     }
 
+    /**
+     * isLinearLayoutManager의 상태에 따라 레이아웃을 grid 또는 linear로 설정한다.
+     */
     private fun chooseLayout() {
         when (isLinearLayoutManager){
             true -> {
@@ -91,6 +94,9 @@ class LetterListFragment : Fragment() {
             else ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_linear_layout)
     }
 
+    /**
+     * 옵션 메뉴 설정
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_switch_layout -> {

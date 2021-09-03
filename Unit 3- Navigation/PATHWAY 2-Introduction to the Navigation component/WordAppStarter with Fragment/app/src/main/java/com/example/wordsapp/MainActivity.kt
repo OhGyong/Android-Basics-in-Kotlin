@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        // 변경될 화면의 정보를 얻음
+        // Fragment의 정보를 얻어옴, NavController를 얻기위해 NavHostFragment로 형변환 한다.
         val navHostFragment = supportFragmentManager
                 .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController

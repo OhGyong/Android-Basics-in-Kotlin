@@ -1,5 +1,5 @@
 # PATHWAY 1: Introduction to the Navigation component
-[PATHWAY 1 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-3-pathway-2)
+[PATHWAY 2 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-3-pathway-2)
 
 ## 1. Android Jetpack: Introducing Navigation Component
 Navigate는 다른 화면으로 이동한다는 것을 뜻한다. 안드로이드 개발에 있어서 절대적으로 기본적인 요소이다.</br>
@@ -122,7 +122,8 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
             ![navigation graph](https://user-images.githubusercontent.com/52282493/131501904-8135650e-bf64-43c7-b349-7f884937b114.PNG)
         - **NavHost**</br>
             NavHost는 Activity 내에서 Navigation Graph의 대상을 표시하는데 사용된다.</br>
-            Fragment 간에 이동하면 NavHost에 표시되는 대상이 업데이트된다. MainAcvitiy에서 NavHostFragment라는 기본적으로 제공되는 것을 사용한다.
+            Fragment 간에 이동하면 NavHost에 표시되는 대상이 업데이트된다.</br>
+            NavHostFragment에는 NavHost 내에서 유효한 Navigation을 정의하는 NavController를 얻을 수 있다.
         - **NavController**</br>
             NavController 객체를 사용하면 NavHost에 표시되는 대상 간의 Navigation을 제어할 수 있다.</br>
             Intent를 사용할 때 startActivity를 호출하여 새로운 Activity 화면으로 이동해야 했지만, NavController의 navigate() 메서드를 호출하여 표시되는 Fragment를 교체할 수 있다.
@@ -148,5 +149,9 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
 
     - `onSupportNavigateUp()`</br>
         위의 setupActionBarWithNavController()을 사용하여 생긴 뒤로가기 버튼의 이벤트 처리를 하기위해서 onSupportNavigateUp()을 오버라이드 해줘야한다.
+    
+    - `as`</br>
+        as 연산자는 대상 값을 as로 지정한 타입으로 캐스트한다.</br>
+        해당 타입으로 변경이 불가능하면 ClassCastException이 발생한다.
         
 ## 3. Navigation: Overview - MAD Skills
