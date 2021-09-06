@@ -5,8 +5,10 @@
 [앱의 테마 변경](https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-theme?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-change-app-theme#0)
 
 - `테마(theme)`</br>
-테마는 개별 View뿐 아니라 앱 구조 전체에 적용되는 스타일의 모음이다. 
+테마는 개별 View뿐 아니라 앱 구조 전체에 적용되는 스타일의 모음이다.
+
 - `colors.xml에 색상 추가 및 themes.xml에 색상 사용`
+
 - `스마트기기가 다크모드일 시 앱의 어두운 테마 설정`</br>
 themes.xml 파일중에서 (night)라고 되어있는 것이 있다. 스마트 기기가 다크모드가 적용되면 해당 파일이 사용된다.
 
@@ -18,6 +20,7 @@ themes.xml 파일중에서 (night)라고 되어있는 것이 있다. 스마트 �
 폴더 이름에 hdpi, mdpi 등과 같은 밀도 한정자가 있다.</br>
 ![image](https://user-images.githubusercontent.com/52282493/129024454-b45773cc-5329-4de8-b482-01fc6aac0e40.png)</br>
 drawable 폴더에 있지 않고 mipmap 폴더에 한정자 별로 존재하는 이유는 다양한 크기의 앱 아이콘을 표시하기 위해서 이다.
+
 - `벡터 드로어블`</br>
 안드로이드의 벡터 그래픽 구현으로 휴대기기에서 유연하도록 만들어졌다.</br>
 벡터 그래픽은 이미지를 정의하는 모양을 그리는 방법을 알고있다.</br>
@@ -30,8 +33,10 @@ drawable 폴더에 있지 않고 mipmap 폴더에 한정자 별로 존재하는 
 
 - `머티리얼을 통한 EditText와 Switch 활용하기`</br>
 com.google.android.material을 통해서 xml 파일에서 변경한다.
-- `아이콘 추가하기`</br>
+
+- `XML에 아이콘 추가하기`</br>
 아이콘을 drawable 폴더에 추가하고 ImageView를 통해 불러온다.
+
 - `스타일 만들기(styles.xml)`</br>
 스타일은 단일 위젯 유형의 뷰 속성 값 모음이다.</br>
 예를 들어 TextView 스타일의 글꼴 색상, 크기, 배경색 등을 지정할 수 있다.</br>
