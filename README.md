@@ -39,6 +39,7 @@
     - 팁 계산기 앱 UI 꾸미기
 - PATHWAY 3- Display a scrollable list
     - 코틀린에서 List 사용 (다양한 조합의 음식을 주문하는 것을 예시로한 코드)
+    - while(), for() 사용
     - RecyclerView
     - 일일 명언 앱 개발
 
