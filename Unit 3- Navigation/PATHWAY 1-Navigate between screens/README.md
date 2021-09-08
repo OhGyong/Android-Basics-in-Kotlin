@@ -100,36 +100,47 @@
 
 - `intent.putExtra`</br>
     다른 Activity에 데이터를 전달하는 메서드
+
 - `intent.extras`</br>
-extras는 Bundle 유형으로 intent에 전달된 모든 extras에 액세스하는 방법
+    extras는 Bundle 유형으로 intent에 전달된 모든 extras에 액세스하는 방법
+
 - `속성의 ?`</br>
-null을 허용할 수 있다는 처리를 ?를 통해서 표현한다.(값이 없을 수 있다.)
+    null을 허용할 수 있다는 처리를 ?를 통해서 표현한다.(값이 없을 수 있다.)
+
 - `companion object (컴패니언 객체)`</br>
-클래스의 특정 인스턴스 없이 상수를 구분하여 사용할 수 있게 하는 기능
+    클래스의 특정 인스턴스 없이 상수를 구분하여 사용할 수 있게 하는 기능
+
 - `Uri (Uniform Resuorce Identifier)`</br>
-URL(Uniform Resource Locator)와 달리 형식에 관한 좀 더 일반적인 용어이다.</br>
+    URL(Uniform Resource Locator)와 달리 형식에 관한 좀 더 일반적인 용어이다.</br>
 ![image](https://user-images.githubusercontent.com/52282493/130318539-83c60c8e-88d4-4b24-ae5d-61e9eee665d7.png)
+
 - `intent.ACTION_VIEW`</br>
-ACTION_VIEW는 URI를 사용하는 일반적인 인텐트이다. </br>
-시스템에서 사용자의 웹브라우저에서 URI를 열어 인텐트를 처리할 수 있다.
+    ACTION_VIEW는 URI를 사용하는 일반적인 인텐트이다. </br>
+    시스템에서 사용자의 웹브라우저에서 URI를 열어 인텐트를 처리할 수 있다.
+    
 - `startActivity()`</br>
-startActivity()를 intent 등을 사용하여 호출하면서 해당 화면을 실행시킨다.
+    startActivity()를 intent 등을 사용하여 호출하면서 해당 화면을 실행시킨다.
+
 - `app bar (앱 바)`
-앱의 상단에 표시되는 부분을 말한다.</br>
-앱 이름을 표시할 수 있고, 메뉴를 추가하는 등의 맞춤 설정을 할 수 있다.
+    앱의 상단에 표시되는 부분을 말한다.</br>
+    앱 이름을 표시할 수 있고, 메뉴를 추가하는 등의 맞춤 설정을 할 수 있다.
+
 - `메뉴 추가하는 방법`</br>
-메뉴를 표현할 아이콘들을 drawable 파일에 다운로드 받는다.</br>
-res 폴더에 Resource Type을 Menu로 하여 리소스 파일을 추가한다.</br>
-java 파일에 메뉴를 추가하는 코드를 작성한다.
+    메뉴를 표현할 아이콘들을 drawable 파일에 다운로드 받는다.</br>
+    res 폴더에 Resource Type을 Menu로 하여 리소스 파일을 추가한다.</br>
+    java 파일에 메뉴를 추가하는 코드를 작성한다.
+
 - `GridLayoutManager()`
+
 - `ContextCompat`</br>
 Resource에서 값을 가져오거나 퍼미션을 확인(사용)할 때 SDK 버전을 고려하지 않아도 설게된 클래스이다.
-- `onCreateOptionMenu()와 onOptionsItemSelected()`</br>
-앱이 메뉴를 사용하기 위해서는 onCreateOptionMenu()와 onOptionsItemSelected() 두 개의 메서드가 필요하다.</br>
-    - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
-    - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출한다.
 
-https://user-images.githubusercontent.com/52282493/130782002-a7f0b596-631b-4192-bbbc-74a7524850e2.mp4
+- `onCreateOptionMenu()와 onOptionsItemSelected()`</br>
+    앱이 메뉴를 사용하기 위해서는 onCreateOptionMenu()와 onOptionsItemSelected() 두 개의 메서드가 필요하다.</br>
+        - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
+        - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출한다.
+
+    https://user-images.githubusercontent.com/52282493/130782002-a7f0b596-631b-4192-bbbc-74a7524850e2.mp4
 
 
 ## 4. Stages of the activity lifecycle
@@ -157,15 +168,16 @@ Activity 생명 주기는 Activity가 생성되는 시점에 시작하여 활동
 
 사용자가 안드로이드 기기와 상호작용을 할 때, 홈으로 이동하거나 전화 통화나 새 앱을 실행하는 경우 해당 앱은 중단 처리를 한다.</br>
 Activity를 종료하지 않고 홈으로 이동하는 등으로 화면에 표시되지 않는다면 이것은 Activity가 백그라운드에 배치된 것이다.</br>
-앱이 백그라운드 상태일 때는 시스템 리소스와 배터리 수명을 보존하기 위해 일반적으로 활동적으로 실행되지 않아야 한다.</br>
+앱이 백그라운드 상태일 때는 시스템 리소스와 배터리 수명을 보존하기 위해 일반적으로 Activity는 실행되지 않아야 한다.</br>
 Activity 생명 주기와 그 콜백을 사용하여 백그라운드로 이동하는 시점을 알 수 있기 때문에 진행 죽인 Activity 활동을 중지 시킬 수 있다.</br>
 그 뒤에 앱이 포그라운드로 전활 될 때에도 작업을 다시 실행할 수 있다.
 
 - `onCreate()`</br>
-모든 Activity에서 구현해야 하는. view binding 등 Activity의 일회성 초기화를 한다.</br>
-Activity가 초기화 된 뒤에(Activity 객체가 메모리에 만들어질 때) 한 번 호출된다.</br>
-onCreate() 메서드를 재정의 할 때 super 클래스로 생성해야 한다. 즉, super.onCreate()를 즉시 호출해야 한다.
-onCreate()가 실행되면 Activity가 생성됨으로 간주된다. 
+    모든 Activity에서 구현해야 하는 메서드로, view binding 등 Activity의 일회성 초기화를 한다.</br>
+    Activity가 초기화 된 뒤에(Activity 객체가 메모리에 만들어질 때) 한 번 호출된다.</br>
+    onCreate() 메서드를 재정의 할 때 super 클래스로 생성해야 한다. 즉, super.onCreate()를 즉시 호출해야 한다.
+    onCreate()가 실행되면 Activity가 생성됨으로 간주된다. 
+
 - `Log`</br>
 Log 클래스는 Logcat에 메시지를 쓴다. Logcat은 메시지를 기록하는 콘솔이다.</br>
     - Log.d() : 디버그 메시지를 작성한다. 
@@ -176,34 +188,45 @@ Log 클래스는 Logcat에 메시지를 쓴다. Logcat은 메시지를 기록하
     모든 메서드에 두 개의 메개변수가 들어간다.</br>
     첫 번째 매개변수는 로그 태그이다. MainActivity 같은 클래스 이름을 삽입하여 로그 메시지를 더 쉽게 찾을 수 있다.</br>
     두 번째 매개변수는 로그 메시지이다. 문자열을 입력하면 된다.
+
 - `onStart()`</br>
-onStart() 생명 주기 메서드는 o() 직후에 호출된다. onStart()가 실행되면 Activity가 화면에 표시된다.</br>
-onCreate()는 Activity를 초기화 하는데 한 번만 호출 되지만, onStart()는 Activity의 생명 주기에서 여러 번 호출될 수 있다.</br>
-onStart()는 상응되는 onStop() 생명 주기 메서드와 페어링된다.</br>
-사용자가 앱을 시작한 후 기기의 홈 화면으로 돌아오면 활동이 중지되고 더 이상 화면에 표시되지 않는다.
+    onStart() 생명 주기 메서드는 onCreate() 직후에 호출된다. onStart()가 실행되면 Activity가 화면에 표시된다.</br>
+    onCreate()는 Activity를 초기화 하는데 한 번만 호출 되지만, onStart()는 Activity의 생명 주기에서 여러 번 호출될 수 있다.</br>
+    onStart()는 상응되는 onStop() 생명 주기 메서드와 페어링된다.</br>
+    사용자가 앱을 시작한 후 기기의 홈 화면으로 돌아오면 Activity()가 중지되고 더 이상 화면에 표시되지 않는다.
+
 - `onResume()`</br>
-활동 포커스를 제공하고 사용자가 수 있도록 Activity를 준비한다.
+    Activity 포커스를 제공하고 사용자가 상호작용할 수 있도록 Activity를 준비한다.
+
 - `onPause()`</br>
-앱이 백그라운드 상태일 때 호출되며, 이 때 사용자의 포커스가 상실된다.
+    앱이 백그라운드 상태일 때 호출되며, 이 때 사용자의 포커스가 상실된다.
+
 - `onStop()`</br>
-onPause() 이후에 호출되며, 더 이상 앱이 표시되지 않는다.
+    onPause() 이후에 호출되며, 더 이상 앱이 표시되지 않는다.
+
 - `onDestroy()`</br>
 onDestroy()의 실행은 Activity가 완전히 종료되었으며 가비지 컬렉션이 될 수 있음을 의미한다.</br>
 onDestroy()가 호출이 되면 시스템은 가비지 컬렉션같은 리소스들이 삭제될 수 있음을 인식하고 메모리 정리를 시작한다.</br>
 onCreate()가 맨 처음 앱을 초기화 할 때 한 번만 호출이 되었던 것처럼 onDestory()는 리소스가 정리 될 때 한 번만 초기화된다.
+
 - `onRestart()`</br>
 앱이 백그라운드에 상태에 있다가 포그라운드로 돌아올 때 onCreate()가 실행되지 않고 onRestart()가 호출된다.</br>
 onCreate()와 유사한 부분은 Activity가 표시되기 전에 호출이 된다는 점이다.
+
 - `가비지 컬렉션`</br>
 더 이상 사용하지 않을 객체의 자동 정리를 나타낸다.
+
 - `finsih()`</br>
 Activity의 종료를 하게 하는 메서드이다.</br>
 스마트 폰 기기의 뒤로가기 버튼을 누른 것처럼 활용할 수 있다.
+
 - `대화형 생명주기`</br>
 앱이 완전히 화면에 표시되고 사용자 포커스를 보유하는 생명 주기 부분을 말한다.
+
 - `기기의 회전 시 데이터 손실`</br>
 기기 상태가 매우 급격하게 변경되어 시스템이 변경사항을 확인하는 가장 쉬운 방법이 Activity를 완전히 종료하고 다시 빌드하는 것이다.</br>
 기기를 가로에서 세로 또는 세로에서 가로로 회전하는 경우 onDestroy() 메서드가 호출되기 때문에 데이터가 손실된다.
+
 - `onSaveInstanceState()`
 Activity가 소멸되면 필요할 수 있는 데이터를 저장하는 데 사용하는 콜백이다.</br>
 생명 주기 콜백 이미지에서 onSaveInstanceState()는 Activity가 중지된 후 (onStop() 메서드가 호출된 후) 호출된다.</br>
