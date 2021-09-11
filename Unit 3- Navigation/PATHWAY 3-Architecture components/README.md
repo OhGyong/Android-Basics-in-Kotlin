@@ -48,8 +48,10 @@
     저장된 데이터는 프레임워크에서 구성 변경이나 다른 이벤트 중에 Activity와 Fragment가 소멸되고 다시 생성되는 경우에도 손실되지 않는다.</br>
     이전에 데이터의 저장을 onSaveInstanceState()[https://github.com/OhGyong/Android-Kotlin-Basics-in-Kotlin/tree/master/Unit%203-%20Navigation/PATHWAY%201-Navigate%20between%20screens]로 했는데,</br>
     이 방법은 번들에 상태를 저장하는 추가 코드를 작성하고 이 상태를 검색하는 로직을 구현해야 한다. 또한 저장할 수 있는 데이터의 양이 적다.</br>
-    Android Architecture components의 ViewModel을 통해 해결할 수 있다.
+    Android Architecture components의 ViewModel을 통해 해결할 수 있다.</br>
     
+    ![image](https://user-images.githubusercontent.com/52282493/132937127-017c178b-ae2f-4a53-8198-e7ed6ce41c76.png)
+
 - `Model`</br>
     앱의 데이터 처리를 담당하는 구성요소.</br>
     앱의 Views 객체 및 앱 구성요소와 독립되어 있으므로 앱의 수명 주기 및 관련 문제의 영향을 받지 않는다.
@@ -109,13 +111,20 @@
         - _count 속성이 private이며 값은 변경이 가능하다. 따라서 ViewModel 클래스 내에서만 액세스하고 수정할 수 있다. 이름은 private 속성 앞에 밑줄을 붙이는게 규칙이다.</br>
 
         **ViewModel 클래스 외부**</br>
-        - count는 공개된 속성이며 UI 컨트롤러와 같은 다른 클래스에서 액세스 할 수 있다. get() 메서드만 재정의된다. 따라서 이 속성은 변경할 수 없으며 읽기 전용이다. 외부 클래스가 이 속성에 액세스하면 _count의 값을 반환하며, 이 값은 수정할 수 없다. 이에 따라 ViewModel에 있는 앱 데이터를 호출을 하면서도 안전을 보장할 수 있다.
+        - count는 공개된 속성이며 UI 컨트롤러와 같은 다른 클래스에서 액세스 할 수 있다. get() 메서드만 재정의된다. 따라서 이 속성은 변경할 수 없으며 읽기 전용이다. 외부 클래스가 이 속성에 액세스하면 _count의 값을 반환하며, 이 값은 수정할 수 없다. 이에 따라 ViewModel에 있는 앱 데이터를 호출을 하면서도 안전을 보장할 수 있다.</br>
 
+    - `init{}`</br>
+        코틀린은 객체 인스턴스 초기화 중에 필요한 초기 설정 코드를 배치하는 장소로 이니셜라이저 블록(init 블록이라고도 함)을 제공한다.</br>
+        이니셜라이저 블록에는 init 키워드 뒤에 중괄호 '{}'가 붙는다. 이 코드 블록은 객체 인스턴스가 처음 생성되어 초기화될 때 실행된다.
 
+    - `CharArray.shuffle()`</br>
+        배열의 요소들을 섞음.
+
+    - `Array와 List의 차이`</br>
+        Array는 List와 비슷하지만 초기화될 때 고정 크기를 가진다.</br>
+        Array는 크기를 확장하거나 축소할 수 없다. 크기를 조절하려면 배열을 복사하여 처리해야한다.</br>
+        반면, List에는 add() 함수와 remove() 함수가 있어 크기를 늘리고 줄일 수 있다.
 
     
-
-    
-
 
 ## 3. Use LiveData with ViewModel
