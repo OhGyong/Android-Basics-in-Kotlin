@@ -125,6 +125,47 @@
         Array는 크기를 확장하거나 축소할 수 없다. 크기를 조절하려면 배열을 복사하여 처리해야한다.</br>
         반면, List에는 add() 함수와 remove() 함수가 있어 크기를 늘리고 줄일 수 있다.
 
+    - `Dialog(대화상자)`</br>
+        대화상자는 사용자에게 결정을 내리거나 추가 정보를 입력하라는 메시지를 표시하는 작은 창이다.(Web에서의 모달 or 팝업?)</br>
+
+        ![image](https://user-images.githubusercontent.com/52282493/132944414-76ca1404-7d36-4466-b9aa-19d6d64595e0.png) </br>
+        1. 알림 대화상자
+        2. 제목(선택사항)
+        3. 메시지
+        4. 텍스트 버튼
+
+    - `MaterialAlertDialogBuilder`</br>
+        **MaterialAlertDialog**를 만들기 위해서는 MaterialAlertDialogBuilder 클래스를 사용하여 대화상자의 구성요소를 단계별로 빌드해야한다.</br>
+        Fragment의 requireContext() 메서드를 사용하여 콘텐츠를 전달하는 MaterialAlertDialogBuilder 생성자를 호출한다.
+
+        ```kotlin
+            // 예시
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(getString(R.string.congratulations)) // 대화상자의 제목 설정
+                .setMessage(getString(R.string.you_scored, viewModel.score)) // 대화상자의 메시지 설정
+                .setCancelable(false) // 뒤로 키를 눌러 대화상자를 취소할 수 없도록 설정
+                .setNegativeButton(getString(R.string.exit)){_, _ ->
+                    exitGame() // 대화상자의 취소 버튼
+                }
+                .setPositiveButton(getString(R.string.play_again)){_, _->
+                    restartGame() // 대화상자의 확인 버튼
+                }
+                .show() // 대화상자를 만들고 표시하는 기능
+        ```
+
+    - `후행 람다 구문(high-order functions and lambadas)`</br>
+        함수에서 전달되는 마지막 인수가 함수이면 괄호 바깥에 람다 표현식을 배치할 수 있는 것을 말한다.</br>
+
+        ```kotlin
+            //예시
+                .setNegativeButton(getString(R.string.exit)) { _, _ ->
+                    exitGame()
+        ```
+    }
+
+    - `Material Text Field를 사용하여 오류 메시지 추가하기`
+
+
     
 
 ## 3. Use LiveData with ViewModel
