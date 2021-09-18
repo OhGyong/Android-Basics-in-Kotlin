@@ -169,3 +169,124 @@
     
 
 ## 3. Use LiveData with ViewModel
+[ViewModel과 함꼐 LiveData 사용하기](https://developer.android.com/codelabs/basic-android-kotlin-training-livedata?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-livedata#0)
+
+- `LiveData`</br>
+    수명 주기를 인식하는 식별 가능한 데이터 홀더 클래스이다. 다음은 LiveData의 특성이다.</br>
+    - LiveData는 데이터를 보유한다. 모든 유형의 데이터에 사용할 수 있는 wrapper이다.
+    - LiveData는 관찰 가능하다. 즉, LiveData 객체에서 보유한 데이터가 변경되면 UI에 알림이 제공된다.
+    - LiveData는 생명 주기를 인식한다. LiveData에 UI를 연결하면 UI는 LifecycleOwner(Activity 또는 Fragment)와 연결된다. LiveData는 STARTED 또는 RESUMED와 같은 Activty 생명 주기 상태인 UI만 업데이트 한다.
+
+- `MutableLiveData<>()`</br>
+    변경 가능한 버전의 LiveData로 내부에 저장된 데이터의 값을 변경할 수 있다.</br>
+    LiveDta 및 MutableLiveData는 일반 클래스이므로 이러한 클래스에 보유되는 데이터의 유형을 지정해야 한다.</br>
+
+    LiveData 객체 내의 데이터에 액세스하려면 value 속성을 사용한다.</br>
+    ``` kotlin
+        // 예시
+        _currentScrambledWord.value = String(tempWord)
+    ```
+
+- `LiveData 객체에 UI 연결하기`</br>
+    LiveData는 생명 주기를 인식한다. 즉, Activity 생명 주기 상태인 UI만 업데이트한다.</br>
+    Fragment의 UI는 'STARTED' 또는 'RESUMED' 상태인 경우에만 알림을 받는다.
+
+    - `observe()`</br>
+        LiveData의 메서드로 LiveData의 UI를 연결할 때 사용한다.</br>
+        첫번쨰 매개변수로는 viewLifecycleOwner를 사용하고 두번째 매개변수로는 데이터를 넣는다.(데이터는 람다식으로 표현할 수 있음)
+
+    - `viewLifecycleOwner`</br>
+        Fragment의 뷰 생명 주기를 나타낸다. observe() 메서드의 매개변수로 사용한다.</br>
+        observe()의 매개변수로 사용하였을 때, LiveData가 Fragment 생명 주기를 인식하고 Fragment가 활성 상태(STARTED 또는 RESUMED)일 때 UI에 알릴 수 있다.
+
+- `plus()`</br>
+    코틀린 함수로 값을 1 증가시킨다.
+
+- `inc()`</br>
+    null에 값을 안전하게 1씩 증가시킨다.
+
+- `data binding과 LiveData 사용하기`</br>
+    data binding을 사용하면 식별 가능한 LiveData 값이 변경될 때 바인딩된 레이아웃의 UI 요소에도 알림이 전송되며 레이아웃 내에서 UI를 업데이트할 수 있다.</br>
+    view binding은 단반향 binding으로 뷰를 코드에 binding할 수 있지만, 코드를 뷰에 binding할 수는 없다.</br>
+    다시 말하면 view binding을 사용하면 뷰에서 앱 데이터를 참조할 수 없다. 이것은 data binding을 통해 해결할 수 있다.
+
+    - `data binding`</br>
+        data binding은 Android Jetpack 라이브러리의 일부이다.</br>
+        data binding은 선언적 형식을 사용하여 레이아웃의 UI 구성요소를 앱의 데이터 소스에 바인딩한다.</br>
+        간단히 말하면, binding data (from code) to views + view binding (binding views to code).</br>
+
+        data binding은 Activity에서 많은 UI 프레임워크 호출을 삭제할 수 있어 파일이 더욱 단순해지고 더 손쉬운 유지관리가 가능하다.</br>
+        또한 앱 성능이 향상되며 메모리 누수 및 null pointer exception을 방지할 수 있다.
+
+        ***사용법***</br>
+        - `data binding 설정하기`</br>
+            1. build.gradle(Module) 파일의 buildFeatures 섹션에서 dataBinding 속성을 설정한다.</br>
+            ```groovy
+                buildFeatures {
+                viewBinding = true
+                }
+            ```
+
+            2. build.gradle(Module) 파일에서 kotlin-kapt 플러그인을 적용해야 한다.</br>
+            ```groovy
+                plugins {
+                    id 'com.android.application'
+                    id 'kotlin-android'
+                    id 'kotlin-kapt'
+                }
+            ```
+
+            위의 두 단계를 마치면 앱의 모든 레이아웃 XML 파일용 binding 클래스를 자동으로 생성한다.
+
+        - `레이아웃 파일을 data binding 레이아웃으로 변환하기`</br>
+            data binding 레이아웃 파일은 약간 차이가 있으며 <'layout'>의 루트 태그로 시작하고 선택적 <'data'> 요소 및 view 루트 요소가 뒤따른다.</br>
+            view 루트 요소는 루트가 binding 레이아웃 파일이 아닌 파일에 있는 요소이다.
+
+            ```xml
+                <!-->예시<-->
+                <layout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools">
+
+                <data>
+
+                </data>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        ...
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+                </layout>
+            ```
+
+            이후 Fragment 등에서 아래와 같이 data binding 인스턴스화를 한다.</br>
+            ```kotlin
+                // 예시
+                binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container,false)
+            ```
+
+        - `data binding 변수 추가하기`</br>
+            레이아웃 파일에서 <'data'> 태그 내에 <'variable'>이라는 하위 태그를 추가하고 name과 type을 지정한다.</br>
+
+            ```xml
+                <!-->예시<-->
+                <data>
+                <variable
+                    name="gameViewModel"
+                    type="com.example.android.unscramble.ui.game.GameViewModel" />
+                </data>
+            ```
+
+        - `레이아웃에 생명 주기 소유자 전달`
+            이후 Fragment 등, LiveData는 생명 주기를 인식하며 식별 가능하기 때문에 레이아웃에 생명 주기 소유자를 전달해야한다.
+            ```kotlin
+                binding.lifecycleOwner = viewLifecycleOwner
+            ```
+
+        
+
+    

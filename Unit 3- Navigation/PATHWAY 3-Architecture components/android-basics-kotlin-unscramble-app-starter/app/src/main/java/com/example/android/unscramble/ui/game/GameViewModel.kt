@@ -1,25 +1,27 @@
 package com.example.android.unscramble.ui.game
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() { // ViewModel은 추상 클래스
 
 
     /**
-     * private로 _currentScrambledWord의 이 클래스에서만 수정할 수 있도록 처리하고
-     * 외부 클래스에서 이 변수를 사용할 때 currentScrambledWord의 get() 메서드를 통해 처리한다.
+     * private로 _변수는 이 클래스에서만 수정할 수 있도록 처리하고
+     * 외부 클래스에서 이 변수를 사용할 때 새로운 변수의 get() 메서드를 통해 처리한다.
      */
-    private var _score = 0
-    val score: Int
+    private val _score = MutableLiveData(0)
+    val score: LiveData<Int>
         get() = _score
 
-    private var _currentWordCount = 0
-    val currentWordCount: Int
+    private var _currentWordCount = MutableLiveData(0)
+    val currentWordCount: LiveData<Int>
         get() = _currentWordCount
 
-    private lateinit var _currentScrambledWord: String
-    val currentScrambledWord: String
+    private val _currentScrambledWord = MutableLiveData<String>() // MutableLiveData 객체에 저장된 데이터만 변경되기 때문에 변수 유형을 val로 지정한다.
+    val currentScrambledWord: LiveData<String>
         get() = _currentScrambledWord
 
     private var wordsList: MutableList<String> = mutableListOf() // 문제로 사용한 단어 리스트
@@ -63,8 +65,8 @@ class GameViewModel : ViewModel() { // ViewModel은 추상 클래스
         if (wordsList.contains(currentWord)) {
             getNextWord() // 포함되면 getNextWord()를 다시 호출하여 단어가 겹치지 않도록 처리.
         } else {
-            _currentScrambledWord = String(tempWord) // 섞은 단어를 표시하도록 바꿔주고
-            ++_currentWordCount // 단어 개수를 늘린다.
+            _currentScrambledWord.value = String(tempWord) // 섞은 단어를 표시하도록 바꿔주고
+            _currentWordCount.value = (_currentWordCount.value)?.inc() // 단어 개수를 늘린다.
             wordsList.add(currentWord) // 단어를 리스트에 추가한다.
         }
     }
@@ -74,8 +76,8 @@ class GameViewModel : ViewModel() { // ViewModel은 추상 클래스
      * 게임 재시작 설정 메서드
      */
     fun reinitializeData() {
-        _score = 0
-        _currentWordCount = 0
+        _score.value = 0
+        _currentWordCount.value = 0
         wordsList.clear()
         getNextWord()
     }
@@ -85,7 +87,7 @@ class GameViewModel : ViewModel() { // ViewModel은 추상 클래스
      * 점수를 높이는 메서드
      */
     private fun increaseScore() {
-        _score += SCORE_INCREASE
+        _score.value = (_score.value)?.plus(SCORE_INCREASE)
     }
 
 
@@ -107,7 +109,7 @@ class GameViewModel : ViewModel() { // ViewModel은 추상 클래스
      */
     fun nextWord(): Boolean {
         // 플레이한 단어 개수가 10개가 넘어가는지 체크
-        return if (_currentWordCount < MAX_NO_OF_WORDS) {
+        return if (_currentWordCount.value!! < MAX_NO_OF_WORDS) {
             getNextWord()
             true
         } else false

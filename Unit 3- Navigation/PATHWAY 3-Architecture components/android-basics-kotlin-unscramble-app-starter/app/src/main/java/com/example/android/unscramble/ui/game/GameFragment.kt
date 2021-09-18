@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.unscramble.R
@@ -26,7 +27,7 @@ class GameFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        binding = GameFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container,false) // 데이터 바인딩 사용
         Log.d("GameFragment", "GameFragment created/re-created!")
         Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord} " +
                 "Score: ${viewModel.score} WordCount: ${viewModel.currentWordCount}")
@@ -40,14 +41,34 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 레이아웃에 data binding을 설정해놨던 것을 초기화 시켜준다.
+        binding.gameViewModel = viewModel
+        binding.maxNoOfWords = MAX_NO_OF_WORDS
+
+        // LiveData는 생명 주기를 인식하며 식별 가능하기 때문에 레이아웃에 생명 주기 소유자를 전달해야한다.
+        binding.lifecycleOwner = viewLifecycleOwner
+
         binding.submit.setOnClickListener { onSubmitWord() }
         binding.skip.setOnClickListener { onSkipWord() }
 
-        // UI 업데이트
-        updateNextWordOnScreen()
-        binding.score.text = getString(R.string.score, 0)
-        binding.wordCount.text = getString(
-                R.string.word_count, 0, MAX_NO_OF_WORDS)
+        // viewModel의 score를 UI에 연결
+        viewModel.score.observe(viewLifecycleOwner,
+                { newScore ->
+                    binding.score.text = getString(R.string.score, newScore)
+                })
+
+        // LiveData의 UI를 연결
+        viewModel.currentScrambledWord.observe(viewLifecycleOwner,
+                { newWord -> // 두 번째 매개변수로 람다를 추가, newWord는 글자가 뒤섞인 새 단어값이 포함된다.
+                    binding.textViewUnscrambledWord.text = newWord
+                })
+
+        // viewModel의 currentWordCount를 UI에 연결
+        viewModel.currentWordCount.observe(viewLifecycleOwner,
+                { newWordCount ->
+                    binding.wordCount.text =
+                            getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
+                })
     }
 
 
@@ -62,9 +83,7 @@ class GameFragment : Fragment() {
 
         if (viewModel.isUserWordCorrect(playerWord)) {
             setErrorTextField(false)
-            if (viewModel.nextWord()) {
-                updateNextWordOnScreen()
-            } else {
+            if (!viewModel.nextWord()) {
                 showFinalScoreDialog()
             }
         } else {
@@ -80,7 +99,6 @@ class GameFragment : Fragment() {
     private fun onSkipWord() {
         if (viewModel.nextWord()) {
             setErrorTextField(false)
-            updateNextWordOnScreen()
         } else {
             showFinalScoreDialog()
         }
@@ -103,7 +121,7 @@ class GameFragment : Fragment() {
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
                 .setTitle(getString(R.string.congratulations)) // 대화상자의 제목 설정
-                .setMessage(getString(R.string.you_scored, viewModel.score)) // 대화상자의 메시지 설정
+                .setMessage(getString(R.string.you_scored, viewModel.score.value)) // 대화상자의 메시지 설정
                 .setCancelable(false) // 뒤로 키를 눌러 대화상자를 취소할 수 없도록 설정
                 .setNegativeButton(getString(R.string.exit)){_, _ ->
                     exitGame() // 대화상자의 취소 버튼
@@ -121,7 +139,6 @@ class GameFragment : Fragment() {
     private fun restartGame() {
         viewModel.reinitializeData()
         setErrorTextField(false)
-        updateNextWordOnScreen()
     }
 
 
@@ -153,13 +170,5 @@ class GameFragment : Fragment() {
             binding.textField.isErrorEnabled = false
             binding.textInputEditText.text = null
         }
-    }
-
-
-    /**
-     * 글자가 뒤섞인 새로운 단어를 표시하는 메서드
-     */
-    private fun updateNextWordOnScreen() {
-        binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord
     }
 }
