@@ -176,15 +176,20 @@
 [Affirmations 프로젝트에 이미지 추가하기](https://developer.android.com/codelabs/basic-android-kotlin-training-display-list-cards?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-display-list-cards#0)
 
 - `리소스 주석`</br>
-@ 기호를 통해 리소스 주석을 사용할 수 있다.
+    @ 기호를 통해 리소스 주석을 사용할 수 있다.
+
 - `LinearLayout`</br>
-뷰를 세로나 가로로 정렬하여 표현할 때 LinearLayout이 적합하다.
+    뷰를 세로나 가로로 정렬하여 표현할 때 LinearLayout이 적합하다.
+
 - `android:importantForAccessibility`</br>
-해당 위젯을 순전히 장식용도로 사용할 때 no 속성을 부여하여 사용한다.
+    해당 위젯을 순전히 장식용도로 사용할 때 no 속성을 부여하여 사용한다.
+
 - `'imageView'.setImageResource`
+
 - `android:textAppearance`</br>
-textAppearance는 텍스트별 스타일을 정의할 수 있는 속성이다.
+    textAppearance는 텍스트별 스타일을 정의할 수 있는 속성이다.
+
 - `MaterialCardView(Card 뷰)`</br>
-레이아웃 별로 구분을 줄 수 있는 뷰로, 컨테이너의 스타일을 일관되게 유지하면서 간편하게 뷰 그룹을 포함할 수 있다.
+    레이아웃 별로 구분을 줄 수 있는 뷰로, 컨테이너의 스타일을 일관되게 유지하면서 간편하게 뷰 그룹을 포함할 수 있다.
 
 https://user-images.githubusercontent.com/52282493/129556781-bf5a63ff-825d-46ba-9cac-a25856a8d0e6.mp4
