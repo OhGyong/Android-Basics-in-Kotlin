@@ -130,7 +130,8 @@
 [xml 레이아웃 만들기에서 생성한 UI에 사용할 수 있는 코틀린 코드 작성하기](https://developer.android.com/codelabs/basic-android-kotlin-training-tip-calculator?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-1%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-tip-calculator#0)
 
 - `뷰 결합(View Binding)`</br>
-    xml에서 작업한 view를 코드로 호출할 때 findViewById() 메서드를 사용하는데, 이러한 접근 방식은 앱에 뷰가 많아지고 UI들이 복잡해지면 매번 findViewById()를 사용하기 번거로워진다. 이것을 위해 build.gradle(.app)파일에
+    xml에서 작업한 view를 코드로 호출할 때 findViewById() 메서드를 사용하는데, 이러한 접근 방식은 앱에 뷰가 많아지고 UI들이 복잡해지면 매번 findViewById()를 사용하기 번거로워진다.</br>
+    이것을 위해 build.gradle(.app)파일에
     ```gradle
     buildFeatures {
         viewBinding = true
@@ -142,6 +143,13 @@
     binding = ActivityMainBinding.inflate(layoutInflater)
     setContentView(binding.root) // 앱의 뷰 계층 구조 루트인 binding.root를 시작 레이아웃으로 지정
     ```
+
+    ***LiveData 강의 중 내용 추가***</br>
+    view binding은 코드에서 view에 더 쉽게 액세스할 수 있는 기능으로 각 XML 레이아웃 파일의 binding 클래스를 생성한다.</br>
+    binding 클래스의 인스턴스에는 상응하는 레이아웃에 ID가 있는 모든 뷰의 직접 참조가 포함된다.</br>
+    단, view binding을 사용하면 뷰에서 앱 데이터를 참조할 수 없다. 이 작업은 data binding을 사용해야한다.
+    
+
 
 - `lateinit`</br>
     코드가 변수를 사용하기 전에 먼저 초기화할 것임을 확인해주는 키워드이다.</br>
