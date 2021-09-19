@@ -287,6 +287,24 @@
                 binding.lifecycleOwner = viewLifecycleOwner
             ```
 
-        
+    - `binding expressions (binding 표현식)`</br>
+        binding 표현식은 레이아웃 내에서 레이아웃 속성을 참조하는 속성(ex-android:text)에서 작성된다.</br>
+        레이아웃 속성은 <'variable'> 태그를 통해 data binding 레이아웃 파일의 상단에서 선언된다.</br>
+        종속 변수 중 하나라도 변경되면 'DB 라이브러리'가 binding 표현식을 실행하고 이에 따라 뷰를 업데이트한다.
 
-    
+        - `binding 표현식의 구문`</br>
+            binding 표현식은 @ 기호로 시작하고 중괄호 {}로 래핑된다.
+            ```xml
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.firstName}" />
+            ```
+
+- `음성 안내 지원을 사용하기`</br>
+    음성 안내 지원은 안드로이드 기기에 포함된 Google 스크린 리더이다.</br>
+    음성 안내 지원은 음성 피드백을 제공하므로 화면을 보지 않고 기기를 사용할 수 있다.
+
+
+https://user-images.githubusercontent.com/52282493/133921276-b80a0abe-75c4-4692-b112-74ffe9a490d8.mp4
+

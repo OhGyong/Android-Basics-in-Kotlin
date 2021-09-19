@@ -52,23 +52,23 @@ class GameFragment : Fragment() {
         binding.skip.setOnClickListener { onSkipWord() }
 
         // viewModel의 score를 UI에 연결
-        viewModel.score.observe(viewLifecycleOwner,
-                { newScore ->
-                    binding.score.text = getString(R.string.score, newScore)
-                })
+//        viewModel.score.observe(viewLifecycleOwner,
+//                { newScore ->
+//                    binding.score.text = getString(R.string.score, newScore)
+//                })
 
         // LiveData의 UI를 연결
-        viewModel.currentScrambledWord.observe(viewLifecycleOwner,
-                { newWord -> // 두 번째 매개변수로 람다를 추가, newWord는 글자가 뒤섞인 새 단어값이 포함된다.
-                    binding.textViewUnscrambledWord.text = newWord
-                })
+//        viewModel.currentScrambledWord.observe(viewLifecycleOwner,
+//                { newWord -> // 두 번째 매개변수로 람다를 추가, newWord는 글자가 뒤섞인 새 단어값이 포함된다.
+//                    binding.textViewUnscrambledWord.text = newWord
+//                })
 
         // viewModel의 currentWordCount를 UI에 연결
-        viewModel.currentWordCount.observe(viewLifecycleOwner,
-                { newWordCount ->
-                    binding.wordCount.text =
-                            getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
-                })
+//        viewModel.currentWordCount.observe(viewLifecycleOwner,
+//                { newWordCount ->
+//                    binding.wordCount.text =
+//                            getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
+//                })
     }
 
 
