@@ -229,7 +229,7 @@ Activity 생명 주기와 그 콜백을 사용하여 백그라운드로 이동�
     기기 상태가 매우 급격하게 변경되어 시스템이 변경사항을 확인하는 가장 쉬운 방법이 Activity를 완전히 종료하고 다시 빌드하는 것이다.</br>
     기기를 가로에서 세로 또는 세로에서 가로로 회전하는 경우 onDestroy() 메서드가 호출되기 때문에 데이터가 손실된다.
 
-- `onSaveInstanceState()`
+- `onSaveInstanceState()`</br>
     Activity가 소멸되면 필요할 수 있는 데이터를 저장하는 데 사용하는 콜백이다.</br>
     생명 주기 콜백 이미지에서 onSaveInstanceState()는 Activity가 중지된 후 (onStop() 메서드가 호출된 후) 호출된다.</br>
     즉, 앱이 백그라운드로 전환될 때마다 호출된다.</br>
