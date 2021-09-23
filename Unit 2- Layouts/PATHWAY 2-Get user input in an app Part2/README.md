@@ -7,10 +7,10 @@
 - `테마(theme)`</br>
     테마는 개별 View뿐 아니라 앱 구조 전체에 적용되는 스타일의 모음이다.
 
-- `colors.xml에 색상 추가 및 themes.xml에 색상 사용`
+- `colors.xml에 색상 추가 및 themes.xml에 색상 사용`</br>
 
 - `스마트기기가 다크모드일 시 앱의 어두운 테마 설정`</br>
-themes.xml 파일중에서 (night)라고 되어있는 것이 있다. 스마트 기기가 다크모드가 적용되면 해당 파일이 사용된다.
+    themes.xml 파일중에서 (night)라고 되어있는 것이 있다. 스마트 기기가 다크모드가 적용되면 해당 파일이 사용된다.
 
 ## 2. Change the app icon
 [앱의 아이콘 변경](https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-icon?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-change-app-icon#0)

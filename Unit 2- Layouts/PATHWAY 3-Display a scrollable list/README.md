@@ -2,7 +2,7 @@
 [PATHWAY 3 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-2-pathway-3)
 
 ## 1. Affirmations app introduction
-이번 PATHWAY에서는 기운을 복돋는 메시지나 문구 목록을 보여줄 수 있는 명언 앱을 개발할 것이다.</br>
+이번 PATHWAY에서는 기운을 복돋는 메시지나 문구 목록을 보여줄 수 있는 명언(Affirmations) 앱을 개발할 것이다.</br>
 앱을 개발하기 위해서 데이터를 목록과 배열로 나타내고, 스크롤을 할 수 있는 텍스트와 이미지의 목록을 표시하는 법을 배운다.
 
 ## 2. Use Lists in Kotlin
@@ -13,8 +13,8 @@
     일반적인 'List'는 생성 후 수정할 수 없지만 'MutableList'는 생성 후 수정할 수 있다(요소를 추가하거나 삭제, 업데이트 가능).</br>
     List를 사용할 때는 포함될 수 있는 요소 유형을 명시적으로 지정해야 한다.</br>
     요소 유형을 표시할때 꺾쇠괄호롤 묶어 추가하면 된다.</br>
-    예를들면 정수 목록으로 List<'Int'>, 문자열 목록으로 List<'String'>, 객체 인스턴스 목록으로 List<'클래스 명'>으로 표현할 수 있다.</br>
-        ```kotlin
+    예를들면 정수 목록으로 List<'Int'>, 문자열 목록으로 List<'String'>, 객체 인스턴스 목록으로 List<'클래스 명'>으로 표현할 수 있다.
+    ```kotlin
         /*
         * 1. listOf<>() 또는 mutableListOf<>()로 생성하기
         * 2. List<> 또는 mutableList<>로 변수의 데이터 유형을 미리 지정하여 생성하기
@@ -27,7 +27,7 @@
         // mutableList로 생성
         val entress = mutableListOf<Int>()
         val entress: MutableList<Int> = mutableListOf()
-        ```
+    ```
 
 - `listOf()`</br>
     List 값을 만듬 → listOf(1, 2, 3, 4, 5) => [1, 2, 3, 4, 5]
@@ -72,12 +72,14 @@
     List가 비어 있는지 확인한다.</br>
     목록이 비어있으면 true, 요소가 하나라도 있으면 false를 반환한다.
 
-- `while 문`</br>
+- `while() 문`</br>
 
-- `for 문`</br>
+- `for() 문`</br>
 
 - `String.length`</br>
     String 변수의 문자 수를 확인할 수 있다.
+
+---
 
 ### 다양한 조합의 음식을 주문하여 출력하는 코드작성
 [예제코드](https://github.com/OhGyong/Android_Study/tree/master/Android%20Kotlin%20Basics%20in%20Kotlin/Unit%202-%20Layouts/PATHWAY%203-Display%20a%20scrollable%20list/PATHWAY%203-2%20code)
@@ -96,6 +98,9 @@
 - `빌더 패턴`</br>
     빌더 패턴은 단계별 접근 방식으로 복잡한 객체를 빌드할 수 있는 프로그래밍의 디자인 패턴이다.
 
+---
+
+
 ## 3. Use RecyclerView to display a scrollable list
 [RecyclerView를 사용하여 스크롤이 되는 목록 표현하기](https://developer.android.com/codelabs/basic-android-kotlin-training-recyclerview-scrollable-list?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-recyclerview-scrollable-list#0)
 
@@ -105,12 +110,13 @@
     이러한 동작은 처리 시간을 크게 단축하고 원할한 스크롤이 되도록 도와준다.</br>
     ![image](https://user-images.githubusercontent.com/52282493/129466921-5643a3d0-6cb1-4c54-aa13-d5e995d9fa9d.png)
 
-- `패키지 설명`</br>
+- `package(패키지)`</br>
     패키지는 클래스나 인터페이스들을 한 곳에 모아두는 곳을 의미한다.</br>
     코드의 여러 부분별로 서로 다른 패키지를 만들어 데이터 작업에 사용하는 클래스와 UI를 서로 다른 패키지로 빌드하는 클래스로 구분할 수 있다.</br>
     여러 클래스를 만들어서 다른 패키지의 코드를 사용할 수 있다. 이것을 위해서 클래스를 코드에 import를 하는 것이 표준 관행이다.<br>
     앱의 클래스가 많지 않더라도 패키지를 사용하여 기능별로 클래스를 그룹화하는 것이 좋다.</br>
-    패키지의 이름은 고유하기만 하다면 어떤 이름이든 상관없다. 패키지 이름은 구체적인 순서로 구성되며 이름의 각 부분은 소문자로 표시하고 마침표(.)로 구분한다. 예를 들어 'com.example' 다음에 앱의 이름을 사용하는 것이 일반적이다.
+    패키지의 이름은 고유하기만 하다면 어떤 이름이든 상관없다. 패키지 이름은 구체적인 순서로 구성되며 이름의 각 부분은 소문자로 표시하고 마침표(.)로 구분한다.</br>
+    예를 들어 'com.example' 다음에 앱의 이름을 사용하는 것이 일반적이다.
 
 - `model 패키지`</br>
     개발자는 데이터를 모델링하거나 표현하는 클래스의 패키지 이름으로 model을 사용하는 경우가 많다.
@@ -120,15 +126,17 @@
 
 - `RecyclerView를 만들고 사용하기 위한 내용`</br>
     ![image](https://user-images.githubusercontent.com/52282493/129467901-fbf0a98b-3f45-452e-add5-979be331326b.png)</br>
-    RecyclerView를 사용하기 위해서 많은 부분이 관련된다.
+    
     - **item**</br>
         표시할 목록의 단일 데이터 항목. 보여줄 단일 객체 하나를 나타낸다.
+
     - **Adapter**</br>
         Adapter는 RecyclerView에서 표시할 수 있도록 데이터를 가져와 준비한다. 즉, 데이터를 RecyclerView 에서 사용할 수 있는 형식으로 조정하는 설계 패턴이다.</br>
         앱이 실행되면 RecyclerView가 Adapter를 사용하여 화면에 데이터를 표시하는 방법을 파악한다.</br>
         RecyclerView는 목록의 첫 번째 데이터 항목을 위한 새 목록 항목 뷰를 만들도록 어댑터에 요청한다.</br>
         뷰가 생성된 후에 항목을 그리기 위한 데이터를 제공하도록 Adapter에 요청한다.</br>
         이 과정은 RecyclerView가 화면에 채워야 할 뷰가 더 이상 필요하지 않을 때까지 반복된다.
+
     - **ViewHolder**</br>
         확인을 표시하기 위해 사용하거나 재사용할 RecyclerView 용 풀이다.</br>
         RecyclerView는 항목 뷰와 직접 상호작용하지 않는 대신 ViewHolders를 처리한다.</br>
@@ -136,6 +144,7 @@
         ViewHolder 인스턴스는 목록 항목 레이아웃 안에 개별 뷰의 참조를 보유한다.</br>
         이렇게 하면 새로운 데이터로 목록 항목 뷰를 더 쉽게 업데이트 할 수 있다.</br>
         ViewHolder는 RecyclerView가 화면에서 뷰를 효율적으로 이동하기 위해 사용하는 정보도 추가한다.
+
     - **RecyclerView**</br>
         화면에 표시되는 뷰.
 

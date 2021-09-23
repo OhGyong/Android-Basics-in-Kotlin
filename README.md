@@ -29,10 +29,10 @@
 - PATHWAY 1- Get User input in an app: Part1
     - 클래스 계층구조 (주택의 거주인, 면적 등을 계산하는 것을 예시로한 코드)
     - 안드로이드 스튜디오 xml 파일 다루기
-    - 뷰 결합(binding)
+    - 뷰 결합(View Binding)
     - 팁 계산기 앱 개발
 - PATHWAY 2- Get User input in an app: Part2
-    - 테마, colors.xml 사용법
+    - 테마(theme), colors.xml 사용법
     - 스마트 기기가 다크모드일 때 앱의 테마 설정
     - 앱의 아이콘 변경
     - 머티리얼 디자인(material design) 문서 소개
