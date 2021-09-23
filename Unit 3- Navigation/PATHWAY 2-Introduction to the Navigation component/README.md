@@ -8,9 +8,12 @@ Bottom Navigation과 같은 패턴의 설정을 더 쉽게 만들게 하고 구�
 Navigation 구성요소는 Activity와 Fragment에서 사용할 수 있다. 또한 다른 화면에서 실행될 수 있도록 라이브러리를 확장시킬 수 있다.</br>
 Navigation 구성요소의 특징 중 하나는 세 가지 주요한 부분이 조화롭게 작동된다는 것이다.
 
-- Navigation Graph : XML 파일 형태의 새로운 리소스 유형으로 Navigation과 관련된 정보를 포함하고 중심화한다. Navigation의 시각화가 가능하다. (안드로이드 3.3 이상부터)
-- NavHostFragment : 레이아웃을 추가할 Fragment 위젯이다. Navigation Graph에서 포함하는 다양한 Fragment 목적지를 교환하는 곳이다. 개별적으로 NavController를 가진다.
-- NavController : 자바나 코틀린 언어로 작업하여 Navigation이 작동되도록 한다.
+- ***Navigation Graph*** </br>
+    XML 파일 형태의 새로운 리소스 유형으로 Navigation과 관련된 정보를 포함하고 중심화한다. Navigation의 시각화가 가능하다. (안드로이드 3.3 이상부터)
+- ***NavHostFragment***</br>
+    레이아웃을 추가할 Fragment 위젯이다. Navigation Graph에서 포함하는 다양한 Fragment 목적지를 교환하는 곳이다. 개별적으로 NavController를 가진다.
+- ***NavController***</br>
+    자바나 코틀린 언어로 작업하여 Navigation이 작동되도록 한다.
 
 Navigation 구성요소의 SafeArgs Plugin은 코드를 생성하여 안전한 유형의 Navigation과 인수를 전달하게 한다. SafeArgs Plugin을 사용하면 유용하게 Navigation을 사용할 수 있다.
 
