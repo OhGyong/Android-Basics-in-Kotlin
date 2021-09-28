@@ -8,3 +8,6 @@
 
 ## 2. Shared ViewModel
 [Fragment간 ViewModel 공유하기](https://developer.android.com/codelabs/basic-android-kotlin-training-shared-viewmodel?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-shared-viewmodel#0)
+
+이전 활동에서 Activity, Fragment, Intent, Data Binding, Jetpack Navigation Component, Architecture components의 사용 방법을 알아봤다.</br>
+이번에는 위의 내용을 종합하고 Shared ViewModel을 사용하여 동일한 Activity의 Fragment 간에 데이터를 공유하는 방법 및 LiveData 변환과 같은 새로운 개념을 컵케이크 주문 앱을 개발해보면서 알아보자.
