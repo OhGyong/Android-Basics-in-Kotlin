@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2020 The Android Open Source Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+     수량, 맛과 같은 주문 세부정보의 요약이 표시되며 주문을 다른 앱으로 전송하는 버톤이 있다.
 -->
-<!-- Layout for order summary -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SummaryFragment">
@@ -29,8 +16,6 @@
             android:orientation="vertical"
             android:padding="@dimen/side_margin">
 
-            <!-- Group the order details into a single ViewGroup and set focusable = true,
-                 so all fields will be read aloud together by the accessibility service -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

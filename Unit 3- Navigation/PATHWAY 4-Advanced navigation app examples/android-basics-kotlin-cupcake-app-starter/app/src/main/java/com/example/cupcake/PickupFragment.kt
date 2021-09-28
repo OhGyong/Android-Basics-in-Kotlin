@@ -21,18 +21,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentPickupBinding
 
 /**
- * [PickupFragment] allows the user to choose a pickup date for the cupcake order.
+ * 픽업 날짜 정하는 화면.
  */
 class PickupFragment : Fragment() {
 
-    // Binding object instance corresponding to the fragment_pickup.xml layout
-    // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
-    // when the view hierarchy is attached to the fragment.
     private var binding: FragmentPickupBinding? = null
 
+
+    /**
+     * 레이아웃을 확장하는 메서드
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +44,10 @@ class PickupFragment : Fragment() {
         return fragmentBinding.root
     }
 
+
+    /**
+     * 뷰가 만들어진 후 호출되는 메서드.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,10 +57,10 @@ class PickupFragment : Fragment() {
     }
 
     /**
-     * Navigate to the next screen to see the order summary.
+     * next 버튼 클릭 시 fragment_summary로 이동하게 하는 메서드
      */
     fun goToNextScreen() {
-        Toast.makeText(activity, "Next", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_pickupFragment_to_summaryFragment)
     }
 
     /**

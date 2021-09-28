@@ -21,18 +21,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentFlavorBinding
 
 /**
- * [FlavorFragment] allows a user to choose a cupcake flavor for the order.
+ * 개수 선택이후 맛을 정하는 화면.
  */
 class FlavorFragment : Fragment() {
 
-    // Binding object instance corresponding to the fragment_flavor.xml layout
-    // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
-    // when the view hierarchy is attached to the fragment.
     private var binding: FragmentFlavorBinding? = null
 
+
+    /**
+     * 레이아웃을 확장하는 메서드.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +44,10 @@ class FlavorFragment : Fragment() {
         return fragmentBinding.root
     }
 
+
+    /**
+     * 뷰가 만들어진 후 호출되는 메서드. 특정 뷰를 속성에 바인딩한다.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -50,11 +56,12 @@ class FlavorFragment : Fragment() {
         }
     }
 
+
     /**
-     * Navigate to the next screen to choose pickup date.
+     * next 버튼 클릭 시 fragment_pickup로 이동하게 하는 메서드
      */
     fun goToNextScreen() {
-        Toast.makeText(activity, "Next", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
     }
 
     /**

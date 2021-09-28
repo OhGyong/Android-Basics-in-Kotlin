@@ -21,10 +21,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentStartBinding
 
 /**
- * This is the first screen of the Cupcake app. The user can choose how many cupcakes to order.
+ * 앱에 표시되는 첫 번째 화면.
  */
 class StartFragment : Fragment() {
 
@@ -33,6 +34,10 @@ class StartFragment : Fragment() {
     // when the view hierarchy is attached to the fragment.
     private var binding: FragmentStartBinding? = null
 
+
+    /**
+     * 레이아웃을 확장하는 메서드.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +47,9 @@ class StartFragment : Fragment() {
         return fragmentBinding.root
     }
 
+    /**
+     * 뷰가 만들어진 후 호출되는 메서드. 특정 뷰를 속성에 바인딩한다.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -54,10 +62,10 @@ class StartFragment : Fragment() {
     }
 
     /**
-     * Start an order with the desired quantity of cupcakes and navigate to the next screen.
+     * 주문 버튼 클릭 시 fragment_flavor로 이동하게 하는 메서드
      */
     fun orderCupcake(quantity: Int) {
-        Toast.makeText(activity, "Ordered $quantity cupcake(s)", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_startFragment_to_flavorFragment) // fragment 이동
     }
 
     /**
