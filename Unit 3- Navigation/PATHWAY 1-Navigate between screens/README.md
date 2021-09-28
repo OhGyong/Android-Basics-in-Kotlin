@@ -135,9 +135,9 @@
     앱 이름을 표시할 수 있고, 메뉴를 추가하는 등의 맞춤 설정을 할 수 있다.
 
 - `메뉴 추가하는 방법`</br>
-    메뉴를 표현할 아이콘들을 drawable 파일에 다운로드 받는다.</br>
-    res 폴더에 Resource Type을 Menu로 하여 리소스 파일을 추가한다.</br>
-    java 파일에 메뉴를 추가하는 코드를 작성한다.
+    1. 메뉴를 표현할 아이콘들을 drawable 파일에 다운로드 받는다.</br>
+    2. res 폴더에 Resource Type을 Menu로 하여 리소스 파일을 추가한다.</br>
+    3. java 파일에 메뉴를 추가하는 코드를 작성한다.
 
 - `GridLayoutManager()`
 
@@ -146,8 +146,8 @@ Resource에서 값을 가져오거나 퍼미션을 확인(사용)할 때 SDK 버
 
 - `onCreateOptionMenu()와 onOptionsItemSelected()`</br>
     앱이 메뉴를 사용하기 위해서는 onCreateOptionMenu()와 onOptionsItemSelected() 두 개의 메서드가 필요하다.</br>
-        - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
-        - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출한다.
+    - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
+    - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출한다.
 
     https://user-images.githubusercontent.com/52282493/130782002-a7f0b596-631b-4192-bbbc-74a7524850e2.mp4
 
