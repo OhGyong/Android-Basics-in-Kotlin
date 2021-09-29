@@ -89,7 +89,7 @@
         ```kotlin
             //지원 속성의 예
 
-            /**
+            /*
             * 수정 가능한 private mutable 변수 선언
             * 클래스 내에서 선언되어야 한다.
             */
@@ -133,7 +133,7 @@
         4. 텍스트 버튼
 
     - `MaterialAlertDialogBuilder`</br>
-        **MaterialAlertDialog**를 만들기 위해서는 MaterialAlertDialogBuilder 클래스를 사용하여 대화상자의 구성요소를 단계별로 빌드해야한다.</br>
+        MaterialAlertDialog를 만들기 위해서는 MaterialAlertDialogBuilder 클래스를 사용하여 대화상자의 구성요소를 단계별로 빌드해야한다.</br>
         Fragment의 requireContext() 메서드를 사용하여 콘텐츠를 전달하는 MaterialAlertDialogBuilder 생성자를 호출한다.
 
         ```kotlin
