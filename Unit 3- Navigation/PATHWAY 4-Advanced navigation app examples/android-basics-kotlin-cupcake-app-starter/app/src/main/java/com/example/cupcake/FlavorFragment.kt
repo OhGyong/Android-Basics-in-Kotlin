@@ -60,8 +60,10 @@ class FlavorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel // ViewModel 인스턴스를 레이아웃의 공유 ViewModel 인스턴스와 결합
-            nextButton.setOnClickListener { goToNextScreen() }
+            ;flavorFragment = this@FlavorFragment
+//            nextButton.setOnClickListener { goToNextScreen() }
         }
     }
 
