@@ -21,7 +21,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.cupcake.databinding.FragmentSummaryBinding
+import com.example.cupcake.model.OrderViewModel
 
 /**
  * [SummaryFragment] contains a summary of the order details with a button to share the order
@@ -29,10 +31,13 @@ import com.example.cupcake.databinding.FragmentSummaryBinding
  */
 class SummaryFragment : Fragment() {
 
-    // Binding object instance corresponding to the fragment_summary.xml layout
-    // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
-    // when the view hierarchy is attached to the fragment.
     private var binding: FragmentSummaryBinding? = null
+
+    /**
+     * fragment-ktx 라이브러리의 by activityViewModel() 코틀린 속성 위임을 사용.
+     * 공유 ViewModel의 참조를 클래스 변수로 가져오기.
+     */
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +52,7 @@ class SummaryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            viewModel = sharedViewModel
             sendButton.setOnClickListener { sendOrder() }
         }
     }

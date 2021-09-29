@@ -21,8 +21,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentFlavorBinding
+import com.example.cupcake.model.OrderViewModel
 
 /**
  * 개수 선택이후 맛을 정하는 화면.
@@ -30,6 +32,12 @@ import com.example.cupcake.databinding.FragmentFlavorBinding
 class FlavorFragment : Fragment() {
 
     private var binding: FragmentFlavorBinding? = null
+
+    /**
+     * fragment-ktx 라이브러리의 by activityViewModel() 코틀린 속성 위임을 사용.
+     * 공유 ViewModel의 참조를 클래스 변수로 가져오기.
+     */
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
 
     /**
@@ -52,6 +60,7 @@ class FlavorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            viewModel = sharedViewModel // ViewModel 인스턴스를 레이아웃의 공유 ViewModel 인스턴스와 결합
             nextButton.setOnClickListener { goToNextScreen() }
         }
     }

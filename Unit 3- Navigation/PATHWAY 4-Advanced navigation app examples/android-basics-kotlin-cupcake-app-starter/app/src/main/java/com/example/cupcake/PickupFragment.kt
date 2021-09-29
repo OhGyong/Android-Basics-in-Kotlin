@@ -21,8 +21,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentPickupBinding
+import com.example.cupcake.model.OrderViewModel
 
 /**
  * 픽업 날짜 정하는 화면.
@@ -30,6 +32,12 @@ import com.example.cupcake.databinding.FragmentPickupBinding
 class PickupFragment : Fragment() {
 
     private var binding: FragmentPickupBinding? = null
+
+    /**
+     * fragment-ktx 라이브러리의 by activityViewModel() 코틀린 속성 위임을 사용.
+     * 공유 ViewModel의 참조를 클래스 변수로 가져오기.
+     */
+    private val sharedViewModel: OrderViewModel by activityViewModels()
 
 
     /**
@@ -52,6 +60,8 @@ class PickupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            lifecycleOwner = viewLifecycleOwner // 생명 주기 소유자와 연결
+            viewModel = sharedViewModel
             nextButton.setOnClickListener { goToNextScreen() }
         }
     }
