@@ -77,3 +77,6 @@
 - `Transformations.map()`</br>
     변환 함수 중 하나이며, LiveData 및 함수를 매개변수로 사용하여 LiveData 소스를 조작하고, 관찰할 수도 있는 업데이트된 값을 반환한다.</br>
     Transformations.map()를 사용하여 현지 통화를 사용할 수 있도록 가격 형식을 지정할 수 있다.
+
+- `리스너 Binding을 통한 버튼 클릭 리스너를 레이아웃에 결합하기`</br>
+    **9.리스너 Binding을 사용하여 클릭 리스너 설정**을 참고
