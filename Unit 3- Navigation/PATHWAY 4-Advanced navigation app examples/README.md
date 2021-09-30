@@ -80,3 +80,6 @@
 
 - `리스너 Binding을 통한 버튼 클릭 리스너를 레이아웃에 결합하기`</br>
     **9.리스너 Binding을 사용하여 클릭 리스너 설정**을 참고
+
+
+https://user-images.githubusercontent.com/52282493/135451858-20a6e8ce-005f-4b67-85ee-404d89acd327.mp4
