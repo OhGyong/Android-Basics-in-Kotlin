@@ -45,3 +45,30 @@
 
     ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131114885-afbb6739-26a2-4700-a26c-51aea34f0d1c.gif)
     ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131115224-525d44dc-7303-4bf6-87b2-89e0a50cc280.gif)
+
+## Unit 3: Navigation
+[Unit 3 정리 페이지](https://github.com/OhGyong/Android-Kotlin-Basics-in-Kotlin/tree/master/Unit%203-%20Navigation)
+- PATHWAY 1- Navigate between screens
+    - 고차함수 → ex)lambda, map, set
+    - Intent(인텐트)
+    - 옵션메뉴 - onCreateOptionMenu(), onOptionsItemSelected()
+    - Activity 생명 주기
+    - Log
+    - onSaveInstanceState()
+
+- PATHWAY 2- Introduction to the Navigation component
+    - Navigation Component - Navigation Graph, NavHostFragment, NavController
+    - Fragment 생명주기
+    - Fragment에서의 Binding
+    - Context 개념
+
+- PATHWAY 3- Architecture components
+    - Android Jetpack
+    - AAC(Android Architecture Components) - UI Controller, ViewModel, LiveData, Room
+    - 코틀린 속성 위임 및 지원 속성
+    - init{}
+    - Dialog 대화상자 - MaterialAlertDialog
+    - LiveData 객체에 UI 연결 - viewLifecycleOwner()
+    - 데이터 결합(Data Binding)
+
+- PATHWAY 4- Advanced navigation app examples
