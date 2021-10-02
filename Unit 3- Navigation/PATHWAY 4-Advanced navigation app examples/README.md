@@ -88,3 +88,25 @@ https://user-images.githubusercontent.com/52282493/135451858-20a6e8ce-005f-4b67-
 [Navigation과 백스택](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-navigation-backstack#0)
 
 이전 유닛에서 진행했던 컵케이크 프로젝트에서 **setupActionBarWithNavController**으로 생성된 상단의 Back 버튼과 주문 취소, 주문을 이메일 등으로 전송하는 것을 배운다.
+
+- `Task와 backstack`</br>
+    안드로이드에서 Activity는 'Task' 내에 존재한다. 런처 아이콘으로 앱을 청므 열면 안드로이드는 기본 Activity가 포함된 새로운 Task를 생성한다.</br>
+    'Task'는 사용자가 이메일 확인, 컵케이크 주문 생성, 사진 촬영 등의 특정한 일을 할 때 상호작용하는 Acitivity의 모음이다.
+
+    Activity는 backstack(백스택)이라는 스택으로 쌓이며, 사용자가 방문하는 각각의 새 Activity는 작업의 backstack으로 푸시된다.</br>
+    스택의 맨 위에 있는 Activity는 사용자가 현재 상호작용하고 있는 Activity이고, 스택에서 그 아래에 있는 Activity는 백그라운드로 전환되었다가 중지된다.</br>
+    ![image](https://user-images.githubusercontent.com/52282493/135725577-c18f5338-24a6-4257-b0ba-c7a908d9dbac.png)
+
+    backstack은 사용자가 뒤로 이동하는 경우 유용하다. 안드로이드는 스택 맨 위에 있는 현재 Activity를 삭제하고 폐기 한 다음에 그 아래에 있는 Activity를 다시 시작할 수 있다.</br>
+    즉, 스택에서 Activity를 pop하고 사용자가 상호작용할 수 있게 이전 Activity가 포그라운드로 이동한다.</br>
+    backstack에 더 이상 Activity가 남아 있지 않으면 사용자는 기기의 런처 화면이나 이 Activity를 실행한 앱으로 돌아가게 된다.
+
+    backstack은 사용자가 열어본 Activity를 추적할 수 있는 것과 같은 방법으로 Jetpack Navigation Component의 도움으로 사용자가 방문한 Fragment도 추적할 수 있다.</br>
+    ![image](https://user-images.githubusercontent.com/52282493/135725923-c6227e07-65a0-4210-8945-77edc48ef0b7.png)
+
+- `backstack에서 pop하기`</br>
+    nav_graph.xml 파일에서 'app:popUpTo' 속성과 'app:popUpToInclusive' 속성을 추가한다.</br>
+    - `app:popUpTo`</br>
+        backstack에서 어디로 이동할지 지정하는 속성
+    - `app:popUpToInclusive`</br>
+        지정한 목표에 도달할 때까지 모든 대상을 backstack에서 pop을 하는 속성
