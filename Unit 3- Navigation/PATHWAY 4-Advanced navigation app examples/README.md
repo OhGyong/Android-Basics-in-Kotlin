@@ -85,3 +85,6 @@ https://user-images.githubusercontent.com/52282493/135451858-20a6e8ce-005f-4b67-
 
 
 ## 3. Navigation and the backstack
+[Navigation과 백스택](https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-4%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-navigation-backstack#0)
+
+이전 유닛에서 진행했던 컵케이크 프로젝트에서 **setupActionBarWithNavController**으로 생성된 상단의 Back 버튼과 주문 취소, 주문을 이메일 등으로 전송하는 것을 배운다.
