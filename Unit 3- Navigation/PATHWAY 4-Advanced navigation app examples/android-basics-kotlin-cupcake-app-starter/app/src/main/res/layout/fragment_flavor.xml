@@ -25,7 +25,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/side_margin">
+            android:padding="@dimen/side_margin"
+            tools:ignore="ExtraText">
 
             <RadioGroup
                 android:id="@+id/flavor_options"
@@ -92,16 +93,26 @@
                 tools:text="Subtotal $5.00" />
 
             <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:onClick="@{() -> flavorFragment.cancelOrder()}"
+                style="?attr/materialButtonOutlinedStyle"
+                app:layout_constraintEnd_toStartOf="@id/next_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/next_button" />
+
+            <Button
                 android:id="@+id/next_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/side_margin"
-                android:text="@string/next"
                 android:onClick="@{() -> flavorFragment.goToNextScreen()}"
+                android:text="@string/next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subtotal" />
+                app:layout_constraintStart_toEndOf="@id/cancel_button"
+                app:layout_constraintTop_toBottomOf="@+id/subtotal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

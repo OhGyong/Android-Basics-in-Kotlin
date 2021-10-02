@@ -22,6 +22,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentSummaryBinding
 import com.example.cupcake.model.OrderViewModel
 
@@ -65,6 +66,16 @@ class SummaryFragment : Fragment() {
     fun sendOrder() {
         Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
     }
+
+
+    /**
+     * cancel 버튼의 리스너 추가
+     */
+    fun cancelOrder() {
+        sharedViewModel.resetOrder() // 취소 버튼시 데이터 초기화
+        findNavController().navigate(R.id.action_summaryFragment_to_startFragment)
+    }
+
 
     /**
      * This fragment lifecycle method is called when the view hierarchy associated with the fragment
