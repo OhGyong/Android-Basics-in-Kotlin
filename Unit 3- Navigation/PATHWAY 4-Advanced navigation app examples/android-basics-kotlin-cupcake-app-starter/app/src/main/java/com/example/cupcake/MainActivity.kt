@@ -17,6 +17,7 @@ package com.example.cupcake
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 
@@ -24,6 +25,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
  * Activity for cupcake order flow.
  */
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
+
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,7 +38,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController)
     }
 
+    /**
+     * 뒤로가기 처리 메서드
+     */
     override fun onSupportNavigateUp(): Boolean {
-        return super.onSupportNavigateUp() || super.onSupportNavigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
