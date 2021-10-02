@@ -33,4 +33,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         setupActionBarWithNavController(navController)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return super.onSupportNavigateUp() || super.onSupportNavigateUp()
+    }
 }
