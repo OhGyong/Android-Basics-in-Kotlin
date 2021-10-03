@@ -147,4 +147,5 @@ https://user-images.githubusercontent.com/52282493/135451858-20a6e8ce-005f-4b67-
         ```
         'getQuantityString()'을 호출할 때 두번째 매개변수는 단수형인지 복수형인지 파악하고, 세번째 매개변수는 실제 문자열 리소스의 %d 자리표시에 사용된다.
 
+https://user-images.githubusercontent.com/52282493/135745307-66770308-307a-4f02-b3ab-fba506f2764a.mp4
 
