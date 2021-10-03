@@ -149,7 +149,7 @@ Resource에서 값을 가져오거나 퍼미션을 확인(사용)할 때 SDK 버
     - onCreateOptionMenu() : 메뉴를 생성한다. 옵션 메뉴를 확장하여 추가 설정을 실행한다.
     - onOptionsItemSelected() : 메뉴의 버튼이 선택될 때 이벤트 처리를 한다. 실제로 chooseLayout()을 호출한다.
 
-    https://user-images.githubusercontent.com/52282493/130782002-a7f0b596-631b-4192-bbbc-74a7524850e2.mp4
+https://user-images.githubusercontent.com/52282493/130782002-a7f0b596-631b-4192-bbbc-74a7524850e2.mp4
 
 
 ## 4. Stages of the activity lifecycle
