@@ -43,8 +43,8 @@
     - RecyclerView
     - 일일 명언 앱 개발
 
-    ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131114885-afbb6739-26a2-4700-a26c-51aea34f0d1c.gif)
-    ![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131115224-525d44dc-7303-4bf6-87b2-89e0a50cc280.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131114885-afbb6739-26a2-4700-a26c-51aea34f0d1c.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/52282493/131115224-525d44dc-7303-4bf6-87b2-89e0a50cc280.gif)
 
 ## Unit 3: Navigation
 [Unit 3 정리 페이지](https://github.com/OhGyong/Android-Kotlin-Basics-in-Kotlin/tree/master/Unit%203-%20Navigation)
