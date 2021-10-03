@@ -110,3 +110,41 @@ https://user-images.githubusercontent.com/52282493/135451858-20a6e8ce-005f-4b67-
         backstack에서 어디로 이동할지 지정하는 속성
     - `app:popUpToInclusive`</br>
         지정한 목표에 도달할 때까지 모든 대상을 backstack에서 pop을 하는 속성
+
+- `Intent.Action_SEND`</br>
+    메일을 전송하는 암시적 인텐트.</br>
+    ```kotlin
+            val intent = Intent(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.new_cupcake_order)) // 이메일 제목
+                .putExtra(Intent.EXTRA_TEXT, orderSummary) // 이메일 본문
+    ```
+
+- `기기에 설치된 앱 패키지에 관한 정보를 확인하는 방법`</br>
+    ```kotlin
+        if (activity?.packageManager?.resolveActivity(intent, 0) != null) {
+        startActivity(intent)
+        }
+    ```
+    PackageManager에 액세스하여 기기에 설치된 앱 패키지에 관한 정보를 확인할 수 있다.</br>
+    activity 및 packageManager가 null이 아닌 경우 Fragment의 activity를 통해 PackageManager에 액세스 할 수 있다.
+
+- `안드로이드 수량 문자열 사용하기`</br
+    - `<plurals>`</br>
+        ```xml
+            <plurals name="cupcakes">
+                <item quantity="one">%d cupcake</item>
+                <item quantity="other">%d cupcakes</item>
+            </plurals>
+        ```
+        quantity="one"인 경우 단수형 문자열이 사용되고, 그 외의 경우 quantity="other"인 복수형 문자열이 사용된다.</br>
+        ---
+        - `getQuantityString()`</br>
+        리소스 파일에서 등록한 후, 코틀린 파일에서 호출할때는 'getQuantityString()'을 사용한다.
+        ```kotlin
+            getQuantityString(R.string.cupcakes, 1, 1) // 반환 결과 : 1 cupcake
+            getQuantityString(R.string.cupcakes, 6, 6) // 반환 결과 : 6 cupcakes
+        ```
+        'getQuantityString()'을 호출할 때 두번째 매개변수는 단수형인지 복수형인지 파악하고, 세번째 매개변수는 실제 문자열 리소스의 %d 자리표시에 사용된다.
+
+

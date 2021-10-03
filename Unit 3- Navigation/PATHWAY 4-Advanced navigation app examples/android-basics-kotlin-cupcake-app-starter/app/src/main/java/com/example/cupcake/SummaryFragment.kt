@@ -15,6 +15,7 @@
  */
 package com.example.cupcake
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +28,7 @@ import com.example.cupcake.databinding.FragmentSummaryBinding
 import com.example.cupcake.model.OrderViewModel
 
 /**
- * [SummaryFragment] contains a summary of the order details with a button to share the order
- * via another app.
+ * 주문 사항을 요약해서 보여주는 화면.
  */
 class SummaryFragment : Fragment() {
 
@@ -61,10 +61,32 @@ class SummaryFragment : Fragment() {
     }
 
     /**
-     * Submit the order by sharing out the order details to another app via an implicit intent.
+     * 주문 요약 텍스트를 메일로 보내는 메서드
      */
     fun sendOrder() {
-        Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
+
+        // 주문 수량을 파악할 변수
+        val numberOfCupcakes = sharedViewModel.quantity.value ?: 0 // elvis 연산자
+
+        // string.xml 텍스트 가져오기
+        val orderSummary = getString(
+                R.string.order_details,
+                resources.getQuantityString(R.plurals.cupcakes, numberOfCupcakes, numberOfCupcakes),
+                sharedViewModel.flavor.value.toString(),
+                sharedViewModel.date.value.toString(),
+                sharedViewModel.price.value.toString()
+        )
+
+        // 암시적 인텐트 사용
+        val intent = Intent(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.new_cupcake_order)) // 이메일 제목
+                .putExtra(Intent.EXTRA_TEXT, orderSummary) // 이메일 본문
+
+        // 인텐트로 Activity 실행 전에 처리할 수 있는 앱이 있는지 확인
+        if (activity?.packageManager?.resolveActivity(intent, 0) != null) {
+            startActivity(intent)
+        }
     }
 
 
