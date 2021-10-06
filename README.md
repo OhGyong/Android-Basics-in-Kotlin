@@ -77,9 +77,7 @@
     - Task와 backstack
     - 메일 전송 Intent
     - plurals, 안드로이드 수량 문자열
-
-
-
+    
 ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/52282493/135745872-b1aa4305-8735-4c51-b589-375f870601f9.gif)
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/52282493/135745985-ab23ce7c-eba3-4031-aa3d-6fdfe9204121.gif)
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/52282493/135746062-fb8f581b-fdbb-4bae-8f96-93d06bdab4d9.gif)
