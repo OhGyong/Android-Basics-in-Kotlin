@@ -72,6 +72,11 @@
     - 데이터 결합(Data Binding)
 
 - PATHWAY 4- Advanced navigation app examples
+    - Shared View Model(공유 뷰 모델)
+    - 안드로이드 날짜 형식 지정
+    - Task와 backstack
+    - 메일 전송 Intent
+    - plurals, 안드로이드 수량 문자열
 
 
 
