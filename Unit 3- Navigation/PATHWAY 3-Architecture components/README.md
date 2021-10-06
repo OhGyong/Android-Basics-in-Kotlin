@@ -161,8 +161,8 @@
             //예시
                 .setNegativeButton(getString(R.string.exit)) { _, _ ->
                     exitGame()
+                }
         ```
-    }
 
     - `Material Text Field를 사용하여 오류 메시지 추가하기`
 
