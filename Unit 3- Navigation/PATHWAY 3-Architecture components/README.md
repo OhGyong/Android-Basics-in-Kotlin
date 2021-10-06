@@ -21,7 +21,7 @@
     이것은 안드로이드의 권장사항으로, 앱 아키텍처를 안내하는 역할을 한다.
 
     **Android Architecture**의 기본 클래스 또는 구성요소
-    - UI 컨트롤러</br>
+    - UI Controller(컨트롤러)</br>
         Activity와 Fragment는 UI 컨트롤러이다.</br>
         UI 컨트롤러는 화면에 뷰를 그리고 사용자가 상호작용하는 모든 UI 관련 동작을 캡처하여 UI를 제어한다.</br>
             
