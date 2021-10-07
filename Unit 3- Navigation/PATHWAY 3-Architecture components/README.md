@@ -62,13 +62,9 @@
     스킵으로 해당 단어를 건너뛸 수 있고, 왼쪽 상단에 몇 개의 단어가 남았는지 표시된다.
 
     - `Kotlin 속성 위임`</br>
-        코틀린에는 변경 가능한 속성(var)에 자동으로 생성되는 기본 getter, setter 함수가 있으며 속성 값을 읽거나 값을 할당할 때 getter 및 setter 함수가 호출된다.</br>
-        읽기 전용 속성(val)의 경우 기본적으로 getter 함수만 생성되며 속성 값을 일을 때 getter 함수가 호출된다.
+        코틀린에는 변경 가능한 속성(var)에 자동으로 생성되는 기본 getter, setter 함수가 있으며 속성 값을 읽거나 값을 할당할 때 getter 및 setter 함수가 호출된다. 읽기 전용 속성(val)의 경우 기본적으로 getter 함수만 생성되며 속성 값을 일을 때 getter 함수가 호출된다.
 
-        코틀린에서 속성 위임을 사용하면 getter-setter 책임을 다른 클래스에 넘길 수 있다.</br>
-        이 클래스는(대리자 클래스라고 한다.) 속성의 getter 및 setter 함수를 제공하고 변경사항을 처리한다.</br>
-        대리자 속성은 다음과 같이 by절 및 대리자 클래스 인스턴스를 사용하여 정의된다.(var 사용 시 에러 발생)</br>
-
+        코틀린에서 속성 위임을 사용하여 getter-setter 책임을 다른 클래스에 넘길 수 있다. 이 클래스는 대리자 클래스라고도 하며, 속성의 getter 및 setter 함수를 제공하고 변경사항을 처리한다. 대리자 속성은 다음과 같이 by절 및 대리자 클래스 인스턴스를 사용하여 정의된다.(var 사용 시 에러 발생)</br>
         ```kotlin
             // 앱에서 기본 GameViewModel 생성자를 사용하여 뷰 모델을 초기화하는 경우
             private val viewModel = GameViewModel()
@@ -76,6 +72,7 @@
             // 속성 위임 접근 방식을 사용하여 뷰 모델을 초기화
             private val viewModel: GameViewModel by viewModels()
         ```
+        
         기기에서 구성이 변경되는 동안 앱이 viewModel 참조의 상태를 손실하게 된다.</br>
         이때 속성 위임 접근 방식을 사용해 viewModel 객체의 책임을 viewModels 라는 별도의 클래스에 위임한다.</br>
         즉, viewModel 객체에 액세스하면 이 객체는 대리자 클래스 viewModels에 의해 내부적으로 처리된다.</br>
