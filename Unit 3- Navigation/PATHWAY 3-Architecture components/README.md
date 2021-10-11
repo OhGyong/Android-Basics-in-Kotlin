@@ -21,7 +21,7 @@
     이것은 안드로이드의 권장사항으로, 앱 아키텍처를 안내하는 역할을 한다.
 
     **Android Architecture**의 기본 클래스 또는 구성요소
-    - UI 컨트롤러</br>
+    - UI Controller(컨트롤러)</br>
         Activity와 Fragment는 UI 컨트롤러이다.</br>
         UI 컨트롤러는 화면에 뷰를 그리고 사용자가 상호작용하는 모든 UI 관련 동작을 캡처하여 UI를 제어한다.</br>
             
@@ -49,7 +49,7 @@
     
     ![image](https://user-images.githubusercontent.com/52282493/132937127-017c178b-ae2f-4a53-8198-e7ed6ce41c76.png)
 
-    ViewModel에서는 데이터를 public 변수로 노출하지 않는 것이 좋다. public 변수(공개 변수)로 노출하게 되면 앱 데이터가 외부 클래스에 의해 예상치 못한 방식으로 수정될 수 있으며, 앱에서 처리할 것으로 예상하지 못한 극단적인 케이스가 발생할 수 있다. 대신 private 변수로 만들고, 지원 속성을 구현하여 val public 변수를 생성한다.
+    ViewModel에서는 데이터를 public 변수로 노출하지 않는 것이 좋다. public 변수(공개 변수)로 노출하게 되면 앱 데이터가 외부 클래스에 의해 예상치 못한 방식으로 수정될 수 있으며, 앱에서 처리할 것으로 예상하지 못한 극단적인 케이스가 발생할 수 있다. 대신 private로 변수를 만들고, 지원 속성을 구현하여 val public 변수를 생성한다.
 
 - `Model`</br>
     앱의 데이터 처리를 담당하는 구성요소.</br>
@@ -62,13 +62,9 @@
     스킵으로 해당 단어를 건너뛸 수 있고, 왼쪽 상단에 몇 개의 단어가 남았는지 표시된다.
 
     - `Kotlin 속성 위임`</br>
-        코틀린에는 변경 가능한 속성(var)에 자동으로 생성되는 기본 getter, setter 함수가 있으며 속성 값을 읽거나 값을 할당할 때 getter 및 setter 함수가 호출된다.</br>
-        읽기 전용 속성(val)의 경우 기본적으로 getter 함수만 생성되며 속성 값을 일을 때 getter 함수가 호출된다.
+        코틀린에는 변경 가능한 속성(var)에 자동으로 생성되는 기본 getter, setter 함수가 있으며 속성 값을 읽거나 값을 할당할 때 getter 및 setter 함수가 호출된다. 읽기 전용 속성(val)의 경우 기본적으로 getter 함수만 생성되며 속성 값을 일을 때 getter 함수가 호출된다.
 
-        코틀린에서 속성 위임을 사용하면 getter-setter 책임을 다른 클래스에 넘길 수 있다.</br>
-        이 클래스는(대리자 클래스라고 한다.) 속성의 getter 및 setter 함수를 제공하고 변경사항을 처리한다.</br>
-        대리자 속성은 다음과 같이 by절 및 대리자 클래스 인스턴스를 사용하여 정의된다.(var 사용 시 에러 발생)</br>
-
+        코틀린에서 속성 위임을 사용하여 getter-setter 책임을 다른 클래스에 넘길 수 있다. 이 클래스는 대리자 클래스라고도 하며, 속성의 getter 및 setter 함수를 제공하고 변경사항을 처리한다. 대리자 속성은 다음과 같이 by절 및 대리자 클래스 인스턴스를 사용하여 정의된다.(var 사용 시 에러 발생)</br>
         ```kotlin
             // 앱에서 기본 GameViewModel 생성자를 사용하여 뷰 모델을 초기화하는 경우
             private val viewModel = GameViewModel()
@@ -76,6 +72,7 @@
             // 속성 위임 접근 방식을 사용하여 뷰 모델을 초기화
             private val viewModel: GameViewModel by viewModels()
         ```
+        
         기기에서 구성이 변경되는 동안 앱이 viewModel 참조의 상태를 손실하게 된다.</br>
         이때 속성 위임 접근 방식을 사용해 viewModel 객체의 책임을 viewModels 라는 별도의 클래스에 위임한다.</br>
         즉, viewModel 객체에 액세스하면 이 객체는 대리자 클래스 viewModels에 의해 내부적으로 처리된다.</br>
@@ -161,8 +158,8 @@
             //예시
                 .setNegativeButton(getString(R.string.exit)) { _, _ ->
                     exitGame()
+                }
         ```
-    }
 
     - `Material Text Field를 사용하여 오류 메시지 추가하기`
 
