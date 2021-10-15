@@ -39,4 +39,28 @@
                 .build()
         ```
 
+- `객체 선언과 싱글톤 패턴`</br>
+    코틀린에서 객체 선언은 싱글톤 객체를 선언하는데 사용된다. 코틀린을 사용하면 싱글톤을 쉽게 선언할 수 있다.</br>
+    싱글톤 패턴은 객체의 인스턴스가 하나만 생성되도록 보장하며, 이 객체의 전역 액세스 포인트 하나를 가진다.
+
+    객체 선언의 초기화는 스레드로부터 안전하며 처음 액세스할 때 실행된다. 객체 선언에는 항상 **object** 키워드 뒤에 이름이 있다.</br>
+    ```kotlin
+        // 예시
+        object DataProviderManager {
+            fun registerDataProvider(provider: DataProvider) {
+                // ...
+            }
+        ​
+            val allDataProviders: Collection<DataProvider>
+                get() = // ...
+        }
+
+        // To refer to the object, use its name directly.
+        DataProviderManager.registerDataProvider(...)
+    ```
+
+    Retrofit 객체에서 create() 함수를 호출하는데는 리소스가 많이 들고, 앱에는 Retrofit API 서비스의 인스턴스가 하나만 필요하다.</br>
+    따라서 객체 선언을 사용하여 나머지 앱의 나머지 부분에 서비스를 노출한다.
+
+
 ## 3. Load and display images from the internet
