@@ -6,6 +6,7 @@
 서버와 클라이언트가 사용할 HTTP 프로토콜로 서로 통신을 한다. 영상을 통해 HTTP와 REST관련 정보를 쌓을 수 있다.
 
 ## 2. Get data from the internet
+[Retrofit을 사용하여 서버에 앱을 연결하기](https://developer.android.com/codelabs/basic-android-kotlin-training-getting-data-internet?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-4-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-getting-data-internet#0)
 
 - `REST`</br>
     REST는 REpresentational State Transfer의 약자이다.</br>
@@ -19,6 +20,7 @@
     Retrofit은 웹 서비스의 콘텐츠를 기반으로 앱의 네트워크 API를 만든다. 그리고 웹 서비스에서 데이터를 가져온 후 데이터를 디코딩하여 String 같은 객체 ㅕㅎㅇ식으로 반환하는 방법을 알고 있는 별도의 변환기 라이브러리를 통해 라우팅한다.
 
     - `Retrofit 종속성 추가`</br>
+        build.gradle (Module: app)에 implementation "com.squareup.retrofit2:retrofit:2.9.0", implementation "com.squareup.retrofit2:converter-scalars:2.9.0" 추가
         ```groovy
             // Retrofit, Retrofit2 라이브러리 자체와 관련되어있다.
             implementation "com.squareup.retrofit2:retrofit:2.9.0"
@@ -114,3 +116,49 @@
     ```
 
 ## 3. Load and display images from the internet
+[Coil 라이브러리를 사용하여 웹 URL에서 이미지 로드하고 표시](https://developer.android.com/codelabs/basic-android-kotlin-training-internet-images?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-4-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-internet-images#0)
+
+웹 URL에서 사진을 표시하는 것은 간단해 보일 수도 있지만 제대로 작동하는데는 많은 엔지니어링 과정이 필요하다.</br>
+이미지를 다운로드하고, 내부적으로 저장하고, 압축 형식에서 안드로이드가 사용할 수 있는 이미지로 디코딩해야 한다.</br>
+이미지는 메모리의 캐시나 저장소 기반의 캐시 혹은 둘 모두에 캐시해야 한다. UI가 응답성을 유지하기 위해 이 모든 작업은 우선순위가 낮은 백그라운드 스레드에서 이루어져야 한다. 또한 네트워크와 CPU의 성능을 위해 둘 이상의 이미지를 한 번에 가져오고 디코딩하는 것이 좋다.
+
+안드로이드에는 **Coil**이라는 라이브러리를 사용하여 이미지를 다운로드하고 버퍼링 및 디코딩하고 캐시할 수 있다.
+
+- `Coil`</br>
+    이미지를 다운로드하고 버퍼링 및 디코딩하고 캐시할 수 있는 mavenCentral() 저장소에서 호스팅되어 제공되는 라이브러리이다.</br>
+
+    아래 둘은 Coil에 기본적인 필수요소이다.
+    - 로드하고 표시할 이미지의 URL
+    - 이미지를 실제로 표시하는 ImageView 객체
+
+    - `Coil 종속성 추가`</br>
+        build.gradle (Module: app)에 implementation "io.coil-kt:coil:1.1.1" 추가
+        ```groovy
+            // Coil
+            implementation "io.coil-kt:coil:1.1.1"
+        ```
+
+        build.gradle (Project: )에 mavenCentral() 추가
+        ```groovy
+           repositories {
+                google()
+                jcenter()
+                mavenCentral()
+            }
+        ```
+
+- `Binding Adapter(결합 어댑터)`</br>
+    Binding Adapter는 뷰의 맞춤 속성을 위한 맞춤 setter를 만드는 데 사용되는 주석 처리된 메서드이다.
+
+    - `@BindingAdapter()`</br>
+
+- `let`</br>
+    let은 코틀린의 범위 함수 중 하나로, 이 함수를 사용하여 객체의 context 내에서 코드 블록을 실행할 수 있다.</br>
+    - 호출 체인의 결과에서 함수 하나 이상을 호출하는 데 사용된다.
+    - 안전 호출 연산자(?.)와 함께 객체에서 null 안전 연산을 실행하는 데 사용된다. 이 경우 let 코드 블록은 객체가 null이 아닌 경우에만 실행된다.
+
+- `toUri()`</br>
+    URL 문자열을 Uri 객체로 변환하도록 하는 함수.
+
+- `buildUpon.scheme("https")`</br>
+    HTTPS 스키마를 사용하기 위한 설정.
