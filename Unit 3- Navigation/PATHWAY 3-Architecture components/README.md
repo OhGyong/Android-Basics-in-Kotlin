@@ -170,7 +170,7 @@
 [ViewModel과 함꼐 LiveData 사용하기](https://developer.android.com/codelabs/basic-android-kotlin-training-livedata?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-livedata#0)
 
 - `LiveData`</br>
-    수명 주기를 인식하는 식별 가능한 데이터 홀더 클래스이다. 다음은 LiveData의 특성이다.</br>
+    생명 주기를 인식하는 식별 가능한 데이터 홀더 클래스이다. 다음은 LiveData의 특성이다.</br>
     - LiveData는 데이터를 보유한다. 모든 유형의 데이터에 사용할 수 있는 wrapper이다.
     - LiveData는 관찰 가능하다. 즉, LiveData 객체에서 보유한 데이터가 변경되면 UI에 알림이 제공된다.
     - LiveData는 생명 주기를 인식한다. LiveData에 UI를 연결하면 UI는 LifecycleOwner(Activity 또는 Fragment)와 연결된다. LiveData는 STARTED 또는 RESUMED와 같은 Activty 생명 주기 상태인 UI만 업데이트 한다.
