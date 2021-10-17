@@ -120,16 +120,21 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
     - `Jetpack Navigation 구성요소`
         안드로이드 Jetpack에서 제공하는 Navigation 구성요소를 통해 앱에서 간단하거나 복잡한 Navigation 구현을 처리할 수 있다.</br>
         Navigation 구성요소에서 Navigation을 구현하는데 사용할 세 가지 주요 부분이 있다.
-        - **Navigation Graph**</br>
+        - `Navigation Graph`</br>
             Navigation Graph는 앱에서 Navigation을 시각적으로 보여주는 XML 파일이다.</br>
             파일은 개별 Activity 및 Fragment에 상응하는 대상과 하나의 대상에서 다른 대상으로 이동하려고 코드에서 사용할 수 있는 대상 사이의 작업으로 구성된다.</br>
             레이아웃 파일과 마찬가지로 안드로이드 스튜디오는 Navigation Graph에 대상과 적업을 추가하는 시작적 편집기를 제공한다.</br>
             ![navigation graph](https://user-images.githubusercontent.com/52282493/131501904-8135650e-bf64-43c7-b349-7f884937b114.PNG)
-        - **NavHost**</br>
+
+            **2-8 내용으로 추가**</br>
+            Navigation Graph는 줄여서 NavGraph라고도 한다. 앱 Navigation의 가상 매핑이다. 각 화면(Activity or Fragment)은 이동이 가능한 destination(대상)이된다. NavGraph는 각 대상이 서로 관련되는 방식을 보여주는 XML 파일로 나타낼 수 있다.
+
+            백그라운드에서 실제로 NavGraph 클래스의 새 인스턴스가 생성된다. 그러나 NavGraph의 대상은 FragmentContainerView로 사용자에게 표시된다. XML 파일을 만들고 가능한 대상을 정의하기만 하면, 생성된 코드를 사용하여 Fragment간에 이동할 수 있다.
+        - `NavHost`</br>
             NavHost는 Activity 내에서 Navigation Graph의 대상을 표시하는데 사용된다.</br>
             Fragment 간에 이동하면 NavHost에 표시되는 대상이 업데이트된다.</br>
             NavHostFragment에는 NavHost 내에서 유효한 Navigation을 정의하는 NavController를 얻을 수 있다.
-        - **NavController**</br>
+        - `NavController`</br>
             NavController 객체를 사용하면 NavHost에 표시되는 대상 간의 Navigation을 제어할 수 있다.</br>
             Intent를 사용할 때 startActivity를 호출하여 새로운 Activity 화면으로 이동해야 했지만, NavController의 navigate() 메서드를 호출하여 표시되는 Fragment를 교체할 수 있다.
     
