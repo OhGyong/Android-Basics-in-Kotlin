@@ -140,7 +140,7 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
     - `Safe Args 플러그인`</br>
         Fragment 간에 데이터를 전달할 때 유형 안전성을 지원하는 Gradle 플러그인인 Safe Args 항목을 추가해야 한다.</br>
         build.gradle(Project)에는 buildscript > dependencies에서 classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"을 sync 해주고</br>
-        build.gradle(App)에는 plugins에 id 'androidx.navigation.safeargs.kotlin'dmf sync 해준다.
+        build.gradle(App)에는 plugins에 id 'androidx.navigation.safeargs.kotlin'을 sync 해준다.
 
     - `app:defaultNavHost="ture"`</br>
         Fragment 컨테이너가 Navigation 계층 구조와 상호작용할 수 있다.</br>
