@@ -221,7 +221,7 @@
             1. build.gradle(Module) 파일의 buildFeatures 섹션에서 dataBinding 속성을 설정한다.</br>
             ```groovy
                 buildFeatures {
-                viewBinding = true
+                    viewBinding = true
                 }
             ```
 
