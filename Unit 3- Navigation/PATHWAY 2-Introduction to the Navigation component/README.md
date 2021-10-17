@@ -147,6 +147,11 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
         build.gradle(Project)에는 buildscript > dependencies에서 classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"을 sync 해주고</br>
         build.gradle(App)에는 plugins에 id 'androidx.navigation.safeargs.kotlin'을 sync 해준다.
 
+    - `androidx.fragment.app.FragmentContainerView`</br>
+        FragmentContainerView는 Fragment를 위해 특별히 설계된 레이아웃이다.</br>
+        FragmentContainerView에 name 속성으로 표시할 Fragment의 패키지 루트를 작성하면 해당 Fragment를 표시할 수 있다.
+
+
     - `app:defaultNavHost="ture"`</br>
         Fragment 컨테이너가 Navigation 계층 구조와 상호작용할 수 있다.</br>
         예를 들면 시스템 뒤로 버튼을 누르면 컨테이너는 새로운 Activity가 표시될 때와 마찬가지로 이전에 표시된 Fragment로 다시 이동한다.
