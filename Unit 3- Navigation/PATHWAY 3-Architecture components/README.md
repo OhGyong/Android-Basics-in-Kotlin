@@ -223,6 +223,10 @@
                 buildFeatures {
                     viewBinding = true
                 }
+
+                dataBinding {
+                    enabled = true
+                }
             ```
 
             2. build.gradle(Module) 파일에서 kotlin-kapt 플러그인을 적용해야 한다.</br>
