@@ -1,5 +1,5 @@
 # PATHWAY 1: Introduction to the Navigation component
-[PATHWAY 2 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-3-pathway-2)
+[PATHWAY 1 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-3-pathway-2)
 
 ## 1. Android Jetpack: Introducing Navigation Component
 Navigate는 다른 화면으로 이동한다는 것을 뜻한다. 안드로이드 개발에 있어서 절대적으로 기본적인 요소이다.</br>
