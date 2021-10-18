@@ -6,7 +6,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-
+/**
+ * 화성 지도 데이터를 얻어올 기본 URL
+ */
 private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com/"
 
 /**
@@ -25,6 +27,10 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
+
+/**
+ * 웹 서버와 통신하는 방법을 정의하는 인터페이스 생성
+ */
 interface MarsApiService {
 
 //    @GET("photos")
@@ -38,13 +44,11 @@ interface MarsApiService {
 
 /**
  * 인터페이스 선언 외부에서  Retrofit 서비스를 초기화.
- * 앱의 나머지 부부네서 액세스할 수 있는 공개 싱글톤 객체.
- * 앱이 MarsApi.retrofitService를 호출할 때마다 호출자는 최초 액게스 시 생성된 MarsApiService를 구현하는 것과 동일한 싱글톤 Retrofit 객체에 액세스한다.
+ * 앱의 나머지 부분에서 액세스할 수 있는 공개 싱글톤 객체.
+ * 앱이 MarsApi.retrofitService를 호출할 때마다 호출자는 최초 액세스 시 생성된 MarsApiService를 구현하는 것과 동일한 싱글톤 Retrofit 객체에 액세스한다.
  */
 object MarsApi {
     val retrofitService : MarsApiService by lazy {
-
-        // MarsApiService 유형의 지연 초기화 Retrofit 객체 속성 retrofitService 추가
         retrofit.create(MarsApiService::class.java)
     }
 }

@@ -54,7 +54,8 @@ class OverviewViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try{
-                _photos.value = MarsApi.retrofitService.getPhotos() // 얻어온 첫 번째 화성 사진을 새 변수에 할당한다.
+                // 싱글톤 객체인 MarsApi의 retrofitService를 호출하면서 인터페이스로 정의한 MarsApiService를 호출.
+                _photos.value = MarsApi.retrofitService.getPhotos()
                 _status.value = MarsApiStatus.DONE
             }catch (e: Exception){
                 _status.value = MarsApiStatus.ERROR
