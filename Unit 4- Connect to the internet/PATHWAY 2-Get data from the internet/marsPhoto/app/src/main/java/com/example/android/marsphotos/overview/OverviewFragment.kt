@@ -16,6 +16,9 @@ import com.example.android.marsphotos.databinding.GridViewItemBinding
  */
 class OverviewFragment : Fragment() {
 
+    /**
+     * OverviewViewModel 초기화
+     */
     private val viewModel: OverviewViewModel by viewModels()
 
     /**
@@ -26,16 +29,14 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentOverviewBinding.inflate(inflater)
-//        val binding = GridViewItemBinding.inflate(inflater)
+        val binding = FragmentOverviewBinding.inflate(inflater) // 데이터 바인딩 인스턴스화, 레이아웃 확장
 
         /**
          * 바인딩 객체에 생명 주기 소유자를 설정
-         *
+         * OverviewViewModel을 컨트롤러에 연결
+         * 리사이클러 뷰의 어댑터를 연결
          */
         binding.lifecycleOwner = this
-
-        // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
         binding.photosGrid.adapter = PhotoGridAdapter()
         return binding.root
