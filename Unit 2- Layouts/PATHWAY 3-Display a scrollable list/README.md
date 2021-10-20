@@ -131,11 +131,11 @@
         표시할 목록의 단일 데이터 항목. 보여줄 단일 객체 하나를 나타낸다.
 
     - **Adapter**</br>
-        Adapter는 RecyclerView에서 표시할 수 있도록 데이터를 가져와 준비한다. 즉, 데이터를 RecyclerView 에서 사용할 수 있는 형식으로 조정하는 설계 패턴이다.</br>
+        Adapter는 RecyclerView에서 표시할 수 있도록 데이터를 가져와 준비한다.</br>
+        즉, 데이터를 RecyclerView 에서 사용할 수 있는 형식으로 조정하는 설계 패턴이다.
+
         앱이 실행되면 RecyclerView가 Adapter를 사용하여 화면에 데이터를 표시하는 방법을 파악한다.</br>
-        RecyclerView는 목록의 첫 번째 데이터 항목을 위한 새 목록 항목 뷰를 만들도록 어댑터에 요청한다.</br>
-        뷰가 생성된 후에 항목을 그리기 위한 데이터를 제공하도록 Adapter에 요청한다.</br>
-        이 과정은 RecyclerView가 화면에 채워야 할 뷰가 더 이상 필요하지 않을 때까지 반복된다.
+        RecyclerView는 목록의 첫 번째 데이터 항목을 위한 새 목록 항목 뷰를 만들도록 어댑터에 요청한다. 뷰가 생성된 후에 항목을 그리기 위한 데이터를 제공하도록 Adapter에 요청한다. 이 과정은 RecyclerView가 화면에 채워야 할 뷰가 더 이상 필요하지 않을 때까지 반복된다.
 
     - **ViewHolder**</br>
         확인을 표시하기 위해 사용하거나 재사용할 RecyclerView 용 풀이다.</br>
