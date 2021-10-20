@@ -82,3 +82,21 @@
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/52282493/135745985-ab23ce7c-eba3-4031-aa3d-6fdfe9204121.gif)
 ![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/52282493/135746062-fb8f581b-fdbb-4bae-8f96-93d06bdab4d9.gif)
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/52282493/135745388-4fb3e171-a937-402b-b096-db255be3e055.gif)
+
+## Unit 4: Connect to the internet
+[Unit 4 정리 페이지](https://github.com/OhGyong/Android-Kotlin-Basics-in-Kotlin/tree/master/Unit%204-%20Connect%20to%20the%20internet)
+- PATHWAY 1- Coroutines
+    - 코루틴
+    - Thread(스레드)
+
+- PATHWAY 2- Get data from the internet
+    - REST
+    - Retrofit
+    - 객체 선언과 싱글톤 패턴
+    - viewModelScope
+    - try-catch, Exception 처리
+    - Json과 Moshi 라이브러리
+    - Coil 라이브러리
+    - Binding Adapter(결합 어댑터)
+    - let 범위 함수
+    - Grid Layout
