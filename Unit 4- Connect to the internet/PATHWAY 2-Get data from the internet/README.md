@@ -1,5 +1,5 @@
 # PATHWAY 2: Get data from the internet
-[PATHWAY 1 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-4-pathway-2)
+[PATHWAY 2 사이트](https://developer.android.com/courses/pathways/android-basics-kotlin-unit-4-pathway-2)
 
 ## 1. Introduction to HTTP/REST
 앱과 인터넷 사이에 데이터와 상호작용하는 것은 중요한 기술이다.</br>
