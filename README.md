@@ -100,3 +100,5 @@
     - Binding Adapter(결합 어댑터)
     - let 범위 함수
     - Grid Layout
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/52282493/139445141-42b3670f-9edd-4781-8166-63986a8c0c86.gif)
