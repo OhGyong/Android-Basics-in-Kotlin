@@ -198,3 +198,5 @@
 
 - `ListAdapter`</br>
     ListAdapter는 RecyclerView.Adapter 클래스의 서브클래스로, 백그라운드 스레드의 목록 간 차이를 계산하는 작업을 포함하여 목록 데이터를 RecyclerView에 표시하기 위한 것이다.
+
+https://user-images.githubusercontent.com/52282493/139442429-fa31404a-6d01-4f5e-9e79-e68fbb7ca771.mp4
