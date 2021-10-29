@@ -133,7 +133,10 @@
 안드로이드에는 **Coil**이라는 라이브러리를 사용하여 이미지를 다운로드하고 버퍼링 및 디코딩하고 캐시할 수 있다.
 
 - `Coil`</br>
-    이미지를 다운로드하고 버퍼링 및 디코딩하고 캐시할 수 있는 mavenCentral() 저장소에서 호스팅되어 제공되는 라이브러리이다.</br>
+    이미지를 다운로드하고 버퍼링 및 디코딩하고 캐시할 수 있는 mavenCentral() 저장소에서 호스팅되어 제공되는 라이브러리이다.
+
+    Coil을 사용하면 이미지를 로드하는 동안 자리표시자 이미지를 표시하고 로드 실패 시 오류 이미지를 표시할 수 있다. 이러한 기능은 binding adapter에 추가해야한다.
+
 
     아래 둘은 Coil에 기본적인 필수요소이다.
     - 로드하고 표시할 이미지의 URL
@@ -158,7 +161,11 @@
 - `Binding Adapter(결합 어댑터)`</br>
     Binding Adapter는 뷰의 맞춤 속성을 위한 맞춤 setter를 만드는 데 사용되는 주석 처리된 메서드이다.
 
+    data binding을 하는 경우에 TextView와 같은 경우 String으로 쉽게 매칭시킬 수 있다. 하지만 RecyclerView의 리스트에 data binding을 적용하거나 ImageView에 data binding을 적용하려고 할 때 TextView와 달리 내부에서 처리를 해줘야한다. 이를 쉽게 하는 방법이 Binding Adapter이다.
+
     - `@BindingAdapter()`</br>
+        뷰 항목에 imageUrl 속성이 있는 경우 이 binding adapter를 실행하도록 data binding에 지시한다.</br>
+        속성 이름을 매개변수로 한다.
 
 - `let`</br>
     let은 코틀린의 범위 함수 중 하나로, 이 함수를 사용하여 객체의 context 내에서 코드 블록을 실행할 수 있다.</br>
@@ -166,10 +173,28 @@
     - 안전 호출 연산자(?.)와 함께 객체에서 null 안전 연산을 실행하는 데 사용된다. 이 경우 let 코드 블록은 객체가 null이 아닌 경우에만 실행된다.
 
 - `toUri()`</br>
-    URL 문자열을 Uri 객체로 변환하도록 하는 함수.
+    URL 문자열을 Uri 객체로 변환하도록 하는 함수.</br>
+    ```kotlin
+        // URL 문자열을 Uri 객체로 변환하고 HTTPS 스키마 사용설정하면서 객체를 빌드.
+        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+    ```
+
+- `Coil.load(){}`</br>
+    Coil의 load(){}를 사용하여 이미지를 로드한다.
 
 - `buildUpon.scheme("https")`</br>
     HTTPS 스키마를 사용하기 위한 설정.
 
 - `Grid Layout(그리드 레이아웃)`</br>
     그리드 레이아웃은 항목을 행과 열의 그리드로 정렬한다. 세로 스크롤을 사용하는 경우 기본적으로 행의 각 항목은 'span(스팬)'하나를 차지한다.
+
+    ```xml
+        <!-->recyclerView로 그리드 레이아웃을 설정할 때<-->
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    ```
+
+- `DiffUtil`</br>
+    RecyclerView에서 일부 항목이 추가되거나 삭제 또는 변경될 때마다 전체 목록이 새로고침되지 않고 변경된 항목만 새로고침이 되는 함수로 ListAdapter에서 구현한다.
+
+- `ListAdapter`</br>
+    ListAdapter는 RecyclerView.Adapter 클래스의 서브클래스로, 백그라운드 스레드의 목록 간 차이를 계산하는 작업을 포함하여 목록 데이터를 RecyclerView에 표시하기 위한 것이다.
