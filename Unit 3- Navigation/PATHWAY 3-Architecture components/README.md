@@ -277,9 +277,9 @@
             ```xml
                 <!-->예시<-->
                 <data>
-                <variable
-                    name="gameViewModel"
-                    type="com.example.android.unscramble.ui.game.GameViewModel" />
+                    <variable
+                        name="gameViewModel"
+                        type="com.example.android.unscramble.ui.game.GameViewModel" />
                 </data>
             ```
 
