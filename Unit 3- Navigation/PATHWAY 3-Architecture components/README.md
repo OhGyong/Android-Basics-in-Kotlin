@@ -16,7 +16,7 @@
     안드로이드 앱을 더 간편하게 개발하기 위해 활용할 수 있는 라이브러리 컬렉션이다.</br>
     이 라이브러리를 사용하면 권장사항을 따를 수 있고 상용구 코드를 작성하지 않아도 되며 복잡한 작업을 간소화 할 수 있다.
 
-- `Android Architecture components`</br>
+- `Android Architecture Components`</br>
     Android Jetpack 라이브러리에 포함되어 있다. 효율적인 아키텍처로 앱을 디자인하는데 도움을 준다.</br>
     이것은 안드로이드의 권장사항으로, 앱 아키텍처를 안내하는 역할을 한다.
 
@@ -277,9 +277,9 @@
             ```xml
                 <!-->예시<-->
                 <data>
-                <variable
-                    name="gameViewModel"
-                    type="com.example.android.unscramble.ui.game.GameViewModel" />
+                    <variable
+                        name="gameViewModel"
+                        type="com.example.android.unscramble.ui.game.GameViewModel" />
                 </data>
             ```
 
