@@ -167,7 +167,7 @@
     
 
 ## 3. Use LiveData with ViewModel
-[ViewModel과 함꼐 LiveData 사용하기](https://developer.android.com/codelabs/basic-android-kotlin-training-livedata?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-livedata#0)
+[ViewModel과 함께 LiveData 사용하기](https://developer.android.com/codelabs/basic-android-kotlin-training-livedata?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-livedata#0)
 
 - `LiveData`</br>
     생명 주기를 인식하는 식별 가능한 데이터 홀더 클래스이다. 다음은 LiveData의 특성이다.</br>
