@@ -191,7 +191,7 @@
 
     - `observe()`</br>
         LiveData의 메서드로 LiveData의 UI를 연결할 때 사용한다.</br>
-        첫번쨰 매개변수로는 viewLifecycleOwner를 사용하고 두번째 매개변수로는 데이터를 넣는다.(데이터는 람다식으로 표현할 수 있음)
+        첫번째 매개변수로는 viewLifecycleOwner를 사용하고 두번째 매개변수로는 데이터를 넣는다.(데이터는 람다식으로 표현할 수 있음)
 
     - `viewLifecycleOwner`</br>
         Fragment의 뷰 생명 주기를 나타낸다. observe() 메서드의 매개변수로 사용한다.</br>
