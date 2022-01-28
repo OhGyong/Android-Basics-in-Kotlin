@@ -12,7 +12,7 @@ import java.lang.Exception
 enum class MarsApiStatus { LOADING, ERROR, DONE }
 
 /**
- * OverviewViewModel에 상응하는 viewModel
+ * OverviewViewFragment 상응하는 viewModel
  */
 class OverviewViewModel : ViewModel() {
 
