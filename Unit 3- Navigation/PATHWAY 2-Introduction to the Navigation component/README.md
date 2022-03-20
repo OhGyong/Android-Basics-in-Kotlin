@@ -110,8 +110,7 @@ Jetpack Navigation 구성요소를 사용하고 Navigation 그래프라는 새�
         Activity 객체는 Context의 객체를 상속받는다. 따라서 Activity가 애플리케이션의 특정자원, 애플리케이션의 환경 정보, 클래스에 대해 접근할 수 있게된다.
 
     - `Fragment의 Context`</br>
-        Activity는 Context를 상속받지만 이와 달리 Fragment는 Context가 아니다. 따라서 this를 레이아웃 관리자의 Context로 전달할 수 없다.</br>
-        하지만 Fragment는 context 속성을 사용할 수 있다.
+        Activity는 Context를 상속받지만 이와 달리 Fragment는 Context가 아니다. 따라서 this를 레이아웃 관리자의 Context로 전달할 수 없다.
 
     - `Fragment의 Intent`</br>
         Fragment에서는 intent 속성이 없으므로 일반적으로 상위 Activity의 인텐트에 액세스가 안된다.</br>
